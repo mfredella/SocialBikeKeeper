@@ -1,6 +1,7 @@
 package sbk.unisannio.com.socialbikekeeper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.StrictMode;
 import android.os.Bundle;
 
@@ -40,8 +41,8 @@ public class MainActivity extends Activity implements OnClickListener {
                 check(output);
                 break;
             case R.id.registration:
-                Toast toast = Toast.makeText(getApplicationContext(),"Activity non ancora implementata", Toast.LENGTH_LONG);
-                toast.show();
+                Intent openPage1 = new Intent(MainActivity.this,RegistrationActivity.class);
+                startActivity(openPage1);
                 break;
         }
     }
