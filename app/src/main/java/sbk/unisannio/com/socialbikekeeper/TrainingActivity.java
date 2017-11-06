@@ -1,7 +1,6 @@
 package sbk.unisannio.com.socialbikekeeper;
 
 import android.Manifest;
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -13,7 +12,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -48,15 +46,25 @@ public class TrainingActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
+    /*variabili d'istanza relative a mappa e posizione*/
     private GoogleMap mMap;
     GoogleApiClient mGoogleApiClient;
     Location mPreviousLocation = null;
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
+    GeoCor gc;
+    private LatLng STARTING_POINT;
+    private LatLng MOVING_POINT;
+    private String latitudine;
+    private String longitudine;
 
     Button start, stop,pause;
 
+    /*variabili relative al calcolo di calorie bruciate e chilometri percorsi*/
+    TextView KM_value, calorie_value, timerValue;
+    DecimalFormat df;
+    String time, distance;
     private float Km_percorsi=0;
     private float speed;
     private static float CONV=(float) 3.6;
@@ -73,19 +81,8 @@ public class TrainingActivity extends AppCompatActivity implements
     long timeSwapBuff = 0L;
     long updatedTime = 0L;
 
-    String cal;
-    TextView KM_value;
-    TextView calorie_value;
-    DecimalFormat df;
-    TextView timerValue;
-    private boolean pausa=false;
     private static String emailLog;
-    //    private GPSTracker gpsTracker;
-    private LatLng STARTING_POINT;
-    private LatLng MOVING_POINT;
-    private String latitudine;
-    private String longitudine;
-    String a, b;
+    private boolean pausa = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,105 +105,6 @@ public class TrainingActivity extends AppCompatActivity implements
 
         calorie_value.setVisibility(View.INVISIBLE);
         KM_value.setVisibility(View.INVISIBLE);
-    }
-
-    public static String getEmail() {
-        return emailLog;
-    }
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-        //Initialize Google Play Services
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED) {
-                buildGoogleApiClient();
-                mMap.setMyLocationEnabled(true);
-            }
-        }
-        else {
-            buildGoogleApiClient();
-            mMap.setMyLocationEnabled(true);
-        }
-    }
-
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        mGoogleApiClient.connect();
-    }
-
-    @Override
-    public void onConnected(Bundle bundle) {
-
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-        }
-        Location startingPoint = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        STARTING_POINT=new LatLng(startingPoint.getLatitude(), startingPoint.getLongitude());
-        latitudine= ""+startingPoint.getLatitude();
-        longitudine=""+startingPoint.getLongitude();
-        Toast.makeText(getApplicationContext(),"onConnected: "+latitudine+" "+longitudine,Toast.LENGTH_LONG).show();
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if(mPreviousLocation == null)
-            mPreviousLocation = location;
-
-        mLastLocation = location;
-        if (mCurrLocationMarker != null) {
-            mCurrLocationMarker.remove();
-        }
-
-        //Place current location marker
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);
-
-        if(!emailLog.equals("null")){
-            Invia in=new Invia("http://socialbikeeper.altervista.org/setuserposition.php?email="+emailLog+"&latitudine="+mPreviousLocation.getLatitude()+"&longitudine="+mPreviousLocation.getLongitude());
-            in.doInBackground();
-        }
-
-        //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()),16));
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -275,6 +173,140 @@ public class TrainingActivity extends AppCompatActivity implements
         }
     }
 
+    /*
+    * Metodo che restituisce l'email dell'utente loggato
+    */
+    public static String getEmail() {
+        return emailLog;
+    }
+
+    /**
+     * Metodo chiamato quando la mappa è pronta per essere usato
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        //Initialize Google Play Services
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                buildGoogleApiClient();
+                mMap.setMyLocationEnabled(true);
+            }
+        }
+        else {
+            buildGoogleApiClient();
+            mMap.setMyLocationEnabled(true);
+        }
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClient.connect();
+    }
+
+    /*
+    * Metodo chiamato ogni volta che il dispositivo si connette e disconnette*/
+    @Override
+    public void onConnected(Bundle bundle) {
+
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        }
+        Location startingPoint = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        STARTING_POINT=new LatLng(startingPoint.getLatitude(), startingPoint.getLongitude());
+        latitudine= ""+startingPoint.getLatitude();
+        longitudine=""+startingPoint.getLongitude();
+        Toast.makeText(getApplicationContext(),"onConnected: "+latitudine+" "+longitudine,Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    /*Metodo che calcola la distanza tra due punti sulla mappa*/
+    public GeoCor currentLocation(double lat,double log) {
+        String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + STARTING_POINT.latitude+","+STARTING_POINT.longitude+ "&destinations="  + lat+ ","+ log  + "&mode=driving&language=fr-FR&avoid=tolls&key=AIzaSyBN3Oxw-68go2aaDGMRTKNZphbyjaup21A";
+        gc=new GeoCor("","");
+        AsyncTask<String,Void,String> cd=gc.execute(url);
+        try {
+            String result =cd.get();
+            Log.d("result", result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return gc;
+    }
+
+    /* Tale metodo sarà chiamato ogni volta che c'è un cambiamento nella posizione del dispositivo
+    *  Calcola e aggiorna i campi (e le relative TextView) kcal e Km_percorsi*/
+    @Override
+    public void onLocationChanged(Location location) {
+        if(mPreviousLocation == null)
+            mPreviousLocation = location;
+
+        mLastLocation = location;
+        if (mCurrLocationMarker != null) {
+            mCurrLocationMarker.remove();
+        }
+
+        //Place current location marker
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title("Current Position");
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        mCurrLocationMarker = mMap.addMarker(markerOptions);
+
+        /* Controllo fatto per evitare di memorizzare la posizione di un utente non loggato*/
+        if(!emailLog.equals("null")){
+            Invia in=new Invia("http://socialbikeeper.altervista.org/setuserposition.php?email="+emailLog+"&latitudine="+mPreviousLocation.getLatitude()+"&longitudine="+mPreviousLocation.getLongitude());
+            in.doInBackground();
+        }
+
+        //move map camera
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude()),16));
+
+        GeoCor geoCore= currentLocation(location.getLatitude(),location.getLongitude());
+
+        time = geoCore.getValue1();
+        distance = geoCore.getValue2();
+
+        df = new DecimalFormat("###.##");
+        df.setRoundingMode(RoundingMode.DOWN);
+
+        float min=Float.parseFloat(time)/60;
+        float dist=Float.parseFloat(distance)/1000;
+        Km_percorsi+=dist;
+        speed= (Float.parseFloat(distance)/Float.parseFloat(time))*CONV;
+        potenza=(P*(H+A) + K*speed*speed) * speed * G;
+        kcal = (potenza*min/1000) / 1.11631;
+        calorie_value.setText("" + df.format(kcal));
+        KM_value.setText("" + df.format(Km_percorsi));
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
 
     @Override
     public void onResume() {
@@ -284,23 +316,66 @@ public class TrainingActivity extends AppCompatActivity implements
 
         start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                pausa=true;
+                startTime = SystemClock.uptimeMillis();
+                customHandler.postDelayed(updateTimerThread, 0);
+                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+                    Location movingPoint = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                    MOVING_POINT = new LatLng(movingPoint.getLatitude(),movingPoint.getLongitude());
+                }
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(MOVING_POINT,16));
+                currentLocation(MOVING_POINT.latitude,MOVING_POINT.longitude);
 
+                calorie_value.setVisibility(View.VISIBLE);
+                KM_value.setVisibility(View.VISIBLE);
             }
         });
 
         pause = (Button) findViewById(R.id.pause_button);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
+                pausa = false;
+                timeSwapBuff += timeInMilliseconds;
+                customHandler.removeCallbacks(updateTimerThread);
             }
         });
 
         stop = (Button) findViewById(R.id.stop_button);
         stop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                stopTimerThread();
+                timeSwapBuff =0L;
+                customHandler.removeCallbacks(updateTimerThread);
 
+                if(Km_percorsi==0.0 && kcal==0.0 && timeInMilliseconds/1000==0.0){
+                    Toast.makeText(getApplicationContext(), "Devi premere start per iniziare l'allenamento!",Toast.LENGTH_LONG).show();
+                }
             }
         });
+    }
+    //Cronometro
+    private Runnable updateTimerThread = new Runnable() {
+        public void run() {
+
+            timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
+            updatedTime = timeSwapBuff + timeInMilliseconds;
+            int secs = (int) (updatedTime / 1000);
+            int mins = secs / 60;
+            secs = secs % 60;
+            int milliseconds = (int) (updatedTime % 100);
+            timerValue.setText("" + mins + ":"
+                    + String.format("%02d", secs) + ":"
+                    + String.format("%02d", milliseconds));
+            customHandler.postDelayed(this, 0);
+        }
+    };
+
+    private void stopTimerThread() {
+        timerValue.setText("" + 00 + ":"
+                + String.format("%02d", 00) + ":"
+                + String.format("%02d", 00));
+        KM_value.setText(""+0.0);
+        calorie_value.setText(""+0.0);
     }
 
     @Override

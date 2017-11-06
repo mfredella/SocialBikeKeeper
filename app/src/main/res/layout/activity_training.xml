@@ -82,7 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/box_Calorie"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff"
+        android:text="00:00:00"
+        android:textColor="@color/colorPrimary"
         android:textSize="40sp" />
 
     <Button
