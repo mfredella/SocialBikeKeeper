@@ -49,8 +49,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
     public void check(String a) {
         if(a.compareTo("trovato")>0) {
-            Toast toast = Toast.makeText(getApplicationContext(),"Benvenuto", Toast.LENGTH_LONG);
-            toast.show();
+            Intent toTraining = new Intent (MainActivity.this, TrainingActivity.class)
+                    .putExtra("email",email.getText().toString());
+            startActivity(toTraining);
+            Toast.makeText(getApplicationContext(),"Benvenuto", Toast.LENGTH_LONG).show();
         }
         else {
             Toast toast = Toast.makeText(getApplicationContext(),"ATTENZIONE login errato",Toast.LENGTH_LONG);
