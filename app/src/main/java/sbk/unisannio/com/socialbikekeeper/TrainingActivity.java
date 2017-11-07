@@ -242,7 +242,7 @@ public class TrainingActivity extends AppCompatActivity implements
 
     /*Metodo che calcola la distanza tra due punti sulla mappa*/
     public GeoCor currentLocation(double lat,double log) {
-        String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + STARTING_POINT.latitude+","+STARTING_POINT.longitude+ "&destinations="  + lat+ ","+ log  + "&mode=driving&language=fr-FR&avoid=tolls&key=AIzaSyBN3Oxw-68go2aaDGMRTKNZphbyjaup21A";
+        String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + STARTING_POINT.latitude+","+STARTING_POINT.longitude+ "&destinations="  + lat+ ","+ log  + "&mode=bicycling&language=it-IT&avoid=tolls&key=AIzaSyBN3Oxw-68go2aaDGMRTKNZphbyjaup21A";
         gc=new GeoCor("","");
         AsyncTask<String,Void,String> cd=gc.execute(url);
         try {
@@ -362,6 +362,9 @@ public class TrainingActivity extends AppCompatActivity implements
                         .putExtra("km",String.valueOf(df.format(Km_percorsi)))
                         .putExtra("tempo",String.valueOf(mins));
                 startActivity(toRisultatiActivity);
+
+                calorie_value.setVisibility(View.INVISIBLE);
+                KM_value.setVisibility(View.INVISIBLE);
             }
         });
     }
