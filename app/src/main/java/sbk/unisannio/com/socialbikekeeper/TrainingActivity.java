@@ -80,6 +80,7 @@ public class TrainingActivity extends AppCompatActivity implements
     long timeInMilliseconds = 0L;
     long timeSwapBuff = 0L;
     long updatedTime = 0L;
+    int mins;
 
     private static String emailLog;
     private boolean pausa = false;
@@ -347,6 +348,9 @@ public class TrainingActivity extends AppCompatActivity implements
                 timeSwapBuff =0L;
                 customHandler.removeCallbacks(updateTimerThread);
 
+                if(String.valueOf(kcal).equals("NaN"))
+                    kcal=0.00;
+
                 if(Km_percorsi==0.0 && kcal==0.0 && timeInMilliseconds/1000==0.0){
                     Toast.makeText(getApplicationContext(), "Devi premere start per iniziare l'allenamento!",Toast.LENGTH_LONG).show();
                 }
@@ -356,7 +360,7 @@ public class TrainingActivity extends AppCompatActivity implements
                         .putExtra("email",emailLog)
                         .putExtra("calorie",String.valueOf(df.format(kcal)))
                         .putExtra("km",String.valueOf(df.format(Km_percorsi)))
-                        .putExtra("tempo",String.valueOf(timeInMilliseconds/1000));
+                        .putExtra("tempo",String.valueOf(mins));
                 startActivity(toRisultatiActivity);
             }
         });
@@ -368,12 +372,13 @@ public class TrainingActivity extends AppCompatActivity implements
             timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
             updatedTime = timeSwapBuff + timeInMilliseconds;
             int secs = (int) (updatedTime / 1000);
-            int mins = secs / 60;
+            mins = secs / 60;
+            int hours = mins / 60;
             secs = secs % 60;
             int milliseconds = (int) (updatedTime % 100);
-            timerValue.setText("" + mins + ":"
-                    + String.format("%02d", secs) + ":"
-                    + String.format("%02d", milliseconds));
+            timerValue.setText("" + hours + ":"
+                    + mins + ":"
+                    + String.format("%02d", secs));
             customHandler.postDelayed(this, 0);
         }
     };
@@ -398,7 +403,8 @@ public class TrainingActivity extends AppCompatActivity implements
         int id=item.getItemId();
         switch(id) {
             case R.id.item_menu_storico:
-                Toast.makeText(getApplicationContext(),"Activity da implementare",Toast.LENGTH_LONG).show();
+                Intent openStorico = new Intent(getApplicationContext(),StoricoActivity.class);
+                startActivity(openStorico);
                 break;
             case R.id.item_menu_logout:
                 Toast.makeText(getApplicationContext(), "Logout: "+emailLog, Toast.LENGTH_LONG).show();
