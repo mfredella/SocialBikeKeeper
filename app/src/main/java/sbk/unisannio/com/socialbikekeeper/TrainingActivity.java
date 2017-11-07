@@ -350,6 +350,14 @@ public class TrainingActivity extends AppCompatActivity implements
                 if(Km_percorsi==0.0 && kcal==0.0 && timeInMilliseconds/1000==0.0){
                     Toast.makeText(getApplicationContext(), "Devi premere start per iniziare l'allenamento!",Toast.LENGTH_LONG).show();
                 }
+
+                Toast.makeText(getApplicationContext(), emailLog, Toast.LENGTH_LONG).show();
+                Intent toRisultatiActivity = new Intent(getApplicationContext(),RisultatiActivity.class)
+                        .putExtra("email",emailLog)
+                        .putExtra("calorie",String.valueOf(df.format(kcal)))
+                        .putExtra("km",String.valueOf(df.format(Km_percorsi)))
+                        .putExtra("tempo",String.valueOf(timeInMilliseconds/1000));
+                startActivity(toRisultatiActivity);
             }
         });
     }
