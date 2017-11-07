@@ -45,8 +45,17 @@ public class TestMainActivity extends ActivityInstrumentationTestCase2<MainActiv
 
     }
 
-//    @Rule
-//    public IntentsTestRule<MainActivity> intentsTestRule = new IntentsTestRule<>(MainActivity.class);
+    @Test
+    public void testAlertDialogNoConnection() throws InterruptedException {
+        onView(withText("Abilita la connessione")).check(matches(isDisplayed()));
+        Thread.sleep(3000);
+    }
+
+    @Test
+    public void testAlertDialogNoGps() throws InterruptedException {
+        onView(withText("Consenti l'accesso al GPS?")).check(matches(isDisplayed()));
+        Thread.sleep(3000);
+    }
 
     @Test
     public void testLogin() throws InterruptedException{
