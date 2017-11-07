@@ -1,10 +1,17 @@
 package sbk.unisannio.com.socialbikekeeper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.StrictMode;
 import android.os.Bundle;
 
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,7 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener, DialogInterface.OnClickListener {
     private EditText email, password;
     private Button login, registration;
 
@@ -23,6 +30,26 @@ public class MainActivity extends Activity implements OnClickListener {
         StrictMode.setThreadPolicy(policy);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        // Controlla se la connessione è abilitata
+        if(ni==null){
+            AlertDialog.Builder builderNet = new AlertDialog.Builder(this);
+            builderNet.setTitle("Network Manager");
+            builderNet.setMessage("Abilita la connessione");
+            builderNet.create().show();
+        }
+        // Controlla se il GPS è abilitato
+        if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Location Manager");
+            builder.setMessage("Consenti l'accesso al GPS?");
+            builder.setPositiveButton("Si", this);
+            builder.setNegativeButton("No", this);
+            builder.create().show();
+        }
 
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(this);
@@ -57,6 +84,19 @@ public class MainActivity extends Activity implements OnClickListener {
         else {
             Toast toast = Toast.makeText(getApplicationContext(),"ATTENZIONE login errato",Toast.LENGTH_LONG);
             toast.show();
+        }
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        switch(which){
+            case -1:
+                Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(i);
+                break;
+            case -2:
+                finish();
+                break;
         }
     }
 }
