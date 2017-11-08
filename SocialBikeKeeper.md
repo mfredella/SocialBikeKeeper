@@ -582,3 +582,53 @@ height="4.295402449693788in"}
 
 ![](media/image13.png){width="3.5759995625546805in"
 height="3.5268536745406824in"}
+
+5 Testing {#testing .Marianna1}
+=========
+
+5.1 Testing funzionale {#testing-funzionale .Marianna2}
+----------------------
+
+  **Registrazione**                                                                                                                    
+  ------------------- ------------------------------------------------------- ------ --------- ---------- ---------------------------- ----------------------------
+  ID                  Email                                                   Nome   Cognome   Password   Valore atteso                Output
+  \#1                 [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara   caruso    sara       "Utente esistente"           "Utente esistente"
+  \#2                 [[jim@gmail.com]{.underline}](mailto:jim@gmail.com)     jim    jim       jim        "Registrazione avvenuta"     "Registrazione avvenuta"
+  \#3                 null@null                                               null   null      null       "Dati inseriti non validi"   "Dati inseriti non validi"
+  \#4                 jim                                                                                 "Dati inseriti non validi"   "Dati inseriti non validi"
+
+  **Accesso al sistema**                                                                                                  
+  ------------------------ ------------------------------------------------------- ---------- --------------------------- ---------------------------
+  ID                       Email                                                   Password   Valore atteso               Output
+  \#1                      [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara       "Benvenuto"                 "Benvenuto"
+  \#2                                                                                         "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#3                      [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   aras       "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#4                      [[aras@gmail.com]{.underline}](mailto:aras@gmail.com)   sara       "ATTENZIONE login errato"   "ATTENZIONE login errato"
+
++-------------+-------------+-------------+-------------+-------------+
+| **Sessione  |
+| d'allenamen |
+| to**        |
++=============+=============+=============+=============+=============+
+| ID          | Operazione  | Operazione  | Valore      | Output      |
+|             | \#1         | \#2         | atteso      |             |
++-------------+-------------+-------------+-------------+-------------+
+| \#1         | Selezione   | Selezione   | Parte il    | Parte il    |
+|             | tasto Start | tasto Stop  | cronometro  | cronometro  |
+|             |             |             | Valore      | Valore      |
+|             |             |             | Chilometri  | Chilometri  |
+|             |             |             | e Valore    | e Valore    |
+|             |             |             | Calorie     | Calorie     |
+|             |             |             | sono        | sono        |
+|             |             |             | visibili    | visibili    |
+|             |             |             |             |             |
+|             |             |             | Visualizza  | Visualizza  |
+|             |             |             | i risultati | i risultati |
++-------------+-------------+-------------+-------------+-------------+
+| \#2         | Selezione   |             | "Devi       | "Devi       |
+|             | tasto Stop  |             | premere     | premere     |
+|             |             |             | Start prima | Start prima |
+|             |             |             | di iniziare | di iniziare |
+|             |             |             | l'allenamen | l'allenamen |
+|             |             |             | to"         | to"         |
++-------------+-------------+-------------+-------------+-------------+
