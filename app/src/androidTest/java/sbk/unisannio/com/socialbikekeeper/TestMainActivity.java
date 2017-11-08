@@ -95,7 +95,8 @@ public class TestMainActivity extends ActivityInstrumentationTestCase2<MainActiv
                 login.performClick();
             }
         });
-
+        Thread.sleep(2000);
+        onView(withText("Benvenuto")).inRoot(withDecorView(not(getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
     }
 
     @Test
@@ -120,6 +121,88 @@ public class TestMainActivity extends ActivityInstrumentationTestCase2<MainActiv
         });
        onView(withText("ATTENZIONE login errato")).inRoot(withDecorView(not(getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
         
+    }
+
+    @Test
+    public void testLoginPswError() throws InterruptedException{
+
+        Thread.sleep(1000);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_S);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_R);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_AT);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_G);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_M);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_I);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_L);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_PERIOD);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_C);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_O);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_M);
+        Thread.sleep(2000);
+
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_TAB);
+        Thread.sleep(1000);
+
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_R);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_S);
+        Thread.sleep(2000);
+
+        login= (Button)mActivity.findViewById(R.id.login);
+        mActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                login.performClick();
+            }
+        });
+        Thread.sleep(2000);
+        onView(withText("ATTENZIONE login errato")).inRoot(withDecorView(not(getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testLoginEmailError() throws InterruptedException{
+
+        Thread.sleep(1000);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_R);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_S);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_AT);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_G);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_M);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_I);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_L);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_PERIOD);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_C);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_O);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_M);
+        Thread.sleep(2000);
+
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_TAB);
+        Thread.sleep(1000);
+
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_S);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_R);
+        getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_A);
+        Thread.sleep(2000);
+
+        login= (Button)mActivity.findViewById(R.id.login);
+        mActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                login.performClick();
+            }
+        });
+        Thread.sleep(2000);
+        onView(withText("ATTENZIONE login errato")).inRoot(withDecorView(not(getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
     }
 
     @Test
