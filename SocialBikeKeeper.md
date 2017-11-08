@@ -583,6 +583,28 @@ height="4.295402449693788in"}
 ![](media/image13.png){width="3.5759995625546805in"
 height="3.5268536745406824in"}
 
+### 4.2.3 Sequence Diagram {#sequence-diagram .Marianna3}
+
+**Accesso al sistema**
+
+![](media/image14.png){width="5.823999343832021in"
+height="3.821330927384077in"}
+
+**Registrazione**
+
+![](media/image15.png){width="4.855555555555555in"
+height="3.231999125109361in"}
+
+**Acquisizione geoposizione**
+
+![](media/image16.png){width="4.967361111111111in"
+height="2.191999125109361in"}
+
+**Sessione d'allenamento**
+
+![](media/image17.png){width="4.3277777777777775in"
+height="2.935999562554681in"}
+
 5 Testing {#testing .Marianna1}
 =========
 
