@@ -6,13 +6,21 @@ import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.junit.Test;
 
 import java.util.Collection;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.runner.lifecycle.Stage.RESUMED;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Created by carusosara on 07/11/2017.
@@ -45,8 +53,23 @@ public class TestTrainingActivity extends ActivityInstrumentationTestCase2<Train
      * se sono visibili alla selezione dello Start
      * se la selezione di Stop prima di Start mostra un Toast di errore
     */
+
     @Test
-    public void testTextView() throws InterruptedException {
+    public void testExceptionStop() throws InterruptedException {
+        stop_button= (Button)tActivity.findViewById(R.id.stop_button);
+        tActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                stop_button.performClick();
+            }
+        });
+        Thread.sleep(2000);
+        onView(withText("Devi premere Start per iniziare l'allenamento!")).inRoot(withDecorView(not(is(getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testTraining() throws InterruptedException {
         KM_value=(TextView)tActivity.findViewById(R.id.KM_value);
         cal_value=(TextView)tActivity.findViewById(R.id.calorie_value);
         timer_value=(TextView)tActivity.findViewById(R.id.timerValue);
