@@ -174,6 +174,12 @@ appena terminato.
 L'interfaccia consente la visualizzazione dei risultati di tutti gli
 allenamenti terminati dall'utente.
 
+**Ricerca ciclisti da sfidare**
+
+L'interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
+momento e dà la possibilità di lanciare una sfida al ciclista scelto
+selezionando il marker corrispondente.
+
 ### 3.1.1 Caratteristiche degli utenti {#caratteristiche-degli-utenti .Marianna3}
 
 Gli utenti destinati all'uso del prodotto Social Bike Keeper sono:
@@ -417,7 +423,9 @@ Social Bike Keeper si interfaccia con:
 |                                   |                                   |
 |                                   | 5.  Il caso d'uso termina         |
 +-----------------------------------+-----------------------------------+
-| **SCENARIO ALTERNATIVO**          | i.  Il ciclista non ha attivato   |
+| **SCENARIO ALTERNATIVO**          | > **Il GPS non è stato attivato** |
+|                                   |                                   |
+|                                   | i.  Il ciclista non ha attivato   |
 |                                   |     il GPS                        |
 |                                   |                                   |
 |                                   | ii. Il ciclista viene informato   |
@@ -476,7 +484,10 @@ Social Bike Keeper si interfaccia con:
 |                                   |                                   |
 |                                   | 7.  Il caso d'uso termina         |
 +-----------------------------------+-----------------------------------+
-| **SCENARIO ALTERNATIVO**          | i.  Il ciclista seleziona il      |
+| **SCENARIO ALTERNATIVO**          | > **Selezione prematura del tasto |
+|                                   | > Stop**                          |
+|                                   |                                   |
+|                                   | i.  Il ciclista seleziona il      |
 |                                   |     tasto Stop prima di           |
 |                                   |     selezionare lo Start          |
 |                                   |                                   |
@@ -528,6 +539,125 @@ Social Bike Keeper si interfaccia con:
 |                                   | 5.  Il caso d'uso termina         |
 +-----------------------------------+-----------------------------------+
 
++-----------------------------------+-----------------------------------+
+| **Caso d'uso: UC-06**             | **Lancio di una sfida**           |
++===================================+===================================+
+| **ATTORI**                        | -   Ciclista                      |
++-----------------------------------+-----------------------------------+
+| **INPUT**                         |                                   |
++-----------------------------------+-----------------------------------+
+| **PRECONDIZIONI**                 | -   Il ciclista abbia effettuato  |
+|                                   |     l'accesso all'applicazione    |
+|                                   |                                   |
+|                                   | -   Il ciclista sia stato         |
+|                                   |     geolocalizzato                |
+|                                   |                                   |
+|                                   | -   La connessione a Internet sia |
+|                                   |     attiva                        |
+|                                   |                                   |
+|                                   | -   È presente almeno un altro    |
+|                                   |     ciclista loggato              |
++-----------------------------------+-----------------------------------+
+| **OUTPUT**                        | -   Il ciclista lancia una sfida  |
+|                                   |     ad un altro ciclista          |
++-----------------------------------+-----------------------------------+
+| **POSTCONDIZIONI**                | -   Il ciclista che lancia la     |
+|                                   |     sfida diventa *sfidante*      |
+|                                   |                                   |
+|                                   | -   Il ciclista che lancia la     |
+|                                   |     sfida diventa *sfidato*       |
+|                                   |                                   |
+|                                   | -   Memorizzazione della sfida    |
+|                                   |     nell'archivio                 |
++-----------------------------------+-----------------------------------+
+| **SCENARIO PRIMARIO**             | 1.  Il ciclista accede            |
+|                                   |     all'applicazione (vedi        |
+|                                   |     **UC-02**)                    |
+|                                   |                                   |
+|                                   | 2.  Il sistema rileva la          |
+|                                   |     geoposizione (vedi **UC-03**) |
+|                                   |                                   |
+|                                   | 3.  Il ciclista seleziona la voce |
+|                                   |     "Sfida" dal menù              |
+|                                   |                                   |
+|                                   | 4.  Il sistema mostra al ciclista |
+|                                   |     una mappa con i marker        |
+|                                   |     corrispondenti ai ciclisti    |
+|                                   |     loggati                       |
+|                                   |                                   |
+|                                   | 5.  Il ciclista sceglie un marker |
+|                                   |     e seleziona "Sfidami"         |
+|                                   |                                   |
+|                                   | 6.  Il ciclista sceglie la durata |
+|                                   |     della sfida                   |
+|                                   |                                   |
+|                                   | 7.  Il sistema informa lo         |
+|                                   |     sfidante che la sfida è stata |
+|                                   |     lanciata correttamente        |
+|                                   |                                   |
+|                                   | 8.  Il sistema mostra al ciclista |
+|                                   |     una notifica di accettazione  |
+|                                   |                                   |
+|                                   | 9.  Il caso d'uso termina         |
++-----------------------------------+-----------------------------------+
+| **SCENARIO ALTERNATIVO**          | > **La sfida viene rifiutata**    |
+|                                   |                                   |
+|                                   | i.  Il sistema mostra al ciclista |
+|                                   |     una notifica di rifiuto della |
+|                                   |     sfida                         |
+|                                   |                                   |
+|                                   | ii. La sfida viene cancellata     |
+|                                   |     dall'archivio                 |
+|                                   |                                   |
+|                                   | iii. Il caso d'uso termina        |
++-----------------------------------+-----------------------------------+
+
++-----------------------------------+-----------------------------------+
+| **Caso d'uso: UC-07**             | **Accettazione di una sfida**     |
++===================================+===================================+
+| **ATTORI**                        | -   Sfidato                       |
++-----------------------------------+-----------------------------------+
+| **INPUT**                         |                                   |
++-----------------------------------+-----------------------------------+
+| **PRECONDIZIONI**                 | -   Lo sfidato abbia effettuato   |
+|                                   |     l'accesso all'applicazione    |
+|                                   |                                   |
+|                                   | -   Lo sfidato sia stato          |
+|                                   |     geolocalizzato                |
+|                                   |                                   |
+|                                   | -   La connessione a Internet sia |
+|                                   |     attiva                        |
++-----------------------------------+-----------------------------------+
+| **OUTPUT**                        | -   Lo sfidato inizia la sfida    |
++-----------------------------------+-----------------------------------+
+| **POSTCONDIZIONI**                | -   Lo stato della sfida in       |
+|                                   |     archivio viene modificato     |
++-----------------------------------+-----------------------------------+
+| **SCENARIO PRIMARIO**             | 1.  Lo sfidato accede             |
+|                                   |     all'applicazione (vedi        |
+|                                   |     **UC-02**)                    |
+|                                   |                                   |
+|                                   | 2.  Il sistema rileva la          |
+|                                   |     geoposizione (vedi **UC-03**) |
+|                                   |                                   |
+|                                   | 3.  Il sistema mostra allo        |
+|                                   |     sfidato una notifica di una   |
+|                                   |     sfida lanciatagli             |
+|                                   |                                   |
+|                                   | 4.  Lo sfidato accetta la sfida   |
+|                                   |                                   |
+|                                   | 5.  Lo sfidato inizia la sfida    |
+|                                   |                                   |
+|                                   | 6.  Il caso d'uso termina         |
++-----------------------------------+-----------------------------------+
+| **SCENARIO ALTERNATIVO**          | > **Lo sfidato rifiuta la sfida** |
+|                                   |                                   |
+|                                   | i.  Lo sfidato rifiuta la sfida   |
+|                                   |     lanciatagli                   |
+|                                   |                                   |
+|                                   | ii. Il caso d'uso termina         |
++-----------------------------------+-----------------------------------+
+
 4.2 Diagrammi UML {#diagrammi-uml .Marianna2}
 -----------------
 
@@ -558,51 +688,69 @@ height="2.4992957130358704in"}
 ![](media/image8.png){width="5.351999125109361in"
 height="2.280985345581802in"}
 
+**Lancio di una sfida**
+
+![](media/image9.png){width="6.2in" height="2.186895231846019in"}
+
+**Accettazione di una sfida**
+
+![](media/image10.png){width="6.33599956255468in"
+height="2.2870199037620296in"}
+
 ### 4.2.2 Activity Diagram {#activity-diagram .Marianna3}
 
 **Registrazione**
 
-![](media/image9.png){width="5.421172353455818in" height="8.46875in"}
+![](media/image11.png){width="5.421172353455818in" height="8.46875in"}
 
 **Accesso al sistema**
 
-![](media/image10.png){width="4.014095581802275in"
+![](media/image12.png){width="4.014095581802275in"
 height="8.385416666666666in"}
 
 **Acquisizione geoposizione**
 
-![](media/image11.png){width="4.395833333333333in"
+![](media/image13.png){width="4.395833333333333in"
 height="4.295402449693788in"}
 
 **Sessione d'allenamento**
 
-![](media/image12.png){width="3.90625in" height="3.7508869203849518in"}
+![](media/image14.png){width="3.90625in" height="3.7508869203849518in"}
 
 **Visualizzazione storico allenamenti**
 
-![](media/image13.png){width="3.5759995625546805in"
+![](media/image15.png){width="3.5759995625546805in"
 height="3.5268536745406824in"}
+
+**Lancio di una sfida**
+
+![](media/image16.png){width="2.88in" height="4.572731846019248in"}
+
+**Accettazione di una sfida**
+
+![](media/image17.png){width="2.7313527996500437in"
+height="4.37599956255468in"}
 
 ### 4.2.3 Sequence Diagram {#sequence-diagram .Marianna3}
 
 **Accesso al sistema**
 
-![](media/image14.png){width="5.823999343832021in"
+![](media/image18.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
 **Registrazione**
 
-![](media/image15.png){width="4.855555555555555in"
+![](media/image19.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
 **Acquisizione geoposizione**
 
-![](media/image16.png){width="4.967361111111111in"
+![](media/image20.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
 **Sessione d'allenamento**
 
-![](media/image17.png){width="4.3277777777777775in"
+![](media/image21.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
 
 5 Testing {#testing .Marianna1}
