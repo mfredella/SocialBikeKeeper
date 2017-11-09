@@ -125,18 +125,18 @@ Avviata l'applicazione, l'utente già registrato potrà effettuare il
 login, altrimenti potrà procedere alla registrazione.
 
 ![](media/image1.png){width="1.8125in"
-height="3.2222222222222223in"}**Registrazione**: l'interfaccia consente
-l'inserimento di informazione personali: nome, cognome, email e
-password. Dopo aver confermato i dati, comparirà un messaggio di
-avvenuta registrazione.
+height="3.2222222222222223in"}[]{#_Toc498003411
+.anchor}**Registrazione**: l'interfaccia consente l'inserimento di
+informazione personali: nome, cognome, email e password. Dopo aver
+confermato i dati, comparirà un messaggio di avvenuta registrazione.
 
 ![](media/image2.png){width="1.7270833333333333in"
 height="3.0701388888888888in"}
 
-**Login**: l'interfaccia consente l'inserimento di email e password. Se
-le credenziali sono errate comparirà il messaggio "Login Errato",
-altrimenti l'utente potrà accedere alle funzionalità previste
-dall'applicazione.
+[]{#_Toc498003412 .anchor}**Login**: l'interfaccia consente
+l'inserimento di email e password. Se le credenziali sono errate
+comparirà il messaggio "Login Errato", altrimenti l'utente potrà
+accedere alle funzionalità previste dall'applicazione.
 
 ###  {#section .Marianna3}
 
@@ -146,8 +146,9 @@ dall'applicazione.
 
 ###  {#section-3 .Marianna3}
 
-![](media/image3.png){width="1.7596806649168855in"
-height="3.1284919072615924in"}**Sessione d'allenamento**
+[]{#_Toc498003413
+.anchor}![](media/image3.png){width="1.7596806649168855in"
+height="3.1284919072615924in"}Sessione d'allenamento
 
 L'interfaccia consente:
 
@@ -164,17 +165,25 @@ L'interfaccia consente:
 -   di visualizzare in real time i chilometri percorsi e le calorie
     bruciate
 
-**Registrazione risultati allenamento**
+![](media/image4.png){width="1.7598425196850394in"
+height="3.1288440507436572in"}
+
+[]{#_Toc498003414 .anchor}Registrazione risultati allenamento
 
 L'interfaccia consente la visualizzazione dei risultati dell'allenamento
 appena terminato.
 
-**Visualizzazione storico allenamenti**
+[]{#_Toc498003415
+.anchor}![](media/image5.png){width="1.7598425196850394in"
+height="3.1293416447944007in"}Visualizzazione storico allenamenti
 
 L'interfaccia consente la visualizzazione dei risultati di tutti gli
 allenamenti terminati dall'utente.
 
-**Ricerca ciclisti da sfidare**
+![](media/image6.png){width="1.7597222222222222in"
+height="3.1284722222222223in"}
+
+[]{#_Toc498003416 .anchor}Ricerca ciclisti da sfidare
 
 L'interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
 momento e dà la possibilità di lanciare una sfida al ciclista scelto
@@ -663,94 +672,94 @@ Social Bike Keeper si interfaccia con:
 
 ### 4.2.1 Use Case Diagram {#use-case-diagram .Marianna3}
 
-**Registrazione**
+[]{#_Toc498003424 .anchor}Registrazione
 
-![](media/image4.png){width="7.199031058617673in"
-height="2.5208333333333335in"}
+![](media/image7.png){width="7.198611111111111in"
+height="2.4959995625546805in"}
 
-**Accesso al sistema**
+[]{#_Toc498003425 .anchor}Accesso al sistema
 
-![](media/image5.png){width="6.895833333333333in"
+![](media/image8.png){width="6.895833333333333in"
 height="2.4680544619422573in"}
 
-**Acquisizione geoposizione**
+[]{#_Toc498003426 .anchor}Acquisizione geoposizione
 
-![](media/image6.png){width="6.864583333333333in"
+![](media/image9.png){width="6.864583333333333in"
 height="2.399040901137358in"}
 
-**Sessione d'allenamento**
+[]{#_Toc498003427 .anchor}Sessione d'allenamento
 
-![](media/image7.png){width="6.979166666666667in"
+![](media/image10.png){width="6.979166666666667in"
 height="2.4992957130358704in"}
 
-**Visualizzazione storico allenamenti**
+[]{#_Toc498003428 .anchor}Visualizzazione storico allenamenti
 
-![](media/image8.png){width="5.351999125109361in"
+![](media/image11.png){width="5.351999125109361in"
 height="2.280985345581802in"}
 
-**Lancio di una sfida**
+[]{#_Toc498003429 .anchor}Lancio di una sfida
 
-![](media/image9.png){width="6.2in" height="2.186895231846019in"}
+![](media/image12.png){width="6.2in" height="2.186895231846019in"}
 
-**Accettazione di una sfida**
+[]{#_Toc498003430 .anchor}Accettazione di una sfida
 
-![](media/image10.png){width="6.33599956255468in"
+![](media/image13.png){width="6.33599956255468in"
 height="2.2870199037620296in"}
 
 ### 4.2.2 Activity Diagram {#activity-diagram .Marianna3}
 
-**Registrazione**
+[]{#_Toc498003432 .anchor}Registrazione
 
-![](media/image11.png){width="5.421172353455818in" height="8.46875in"}
+![](media/image14.png){width="5.421172353455818in" height="8.46875in"}
 
-**Accesso al sistema**
+[]{#_Toc498003433 .anchor}Accesso al sistema
 
-![](media/image12.png){width="4.014095581802275in"
+![](media/image15.png){width="4.014095581802275in"
 height="8.385416666666666in"}
 
-**Acquisizione geoposizione**
+[]{#_Toc498003434 .anchor}Acquisizione geoposizione
 
-![](media/image13.png){width="4.395833333333333in"
+![](media/image16.png){width="4.395833333333333in"
 height="4.295402449693788in"}
 
-**Sessione d'allenamento**
+[]{#_Toc498003435 .anchor}Sessione d'allenamento
 
-![](media/image14.png){width="3.90625in" height="3.7508869203849518in"}
+![](media/image17.png){width="3.90625in" height="3.7508869203849518in"}
 
-**Visualizzazione storico allenamenti**
+[]{#_Toc498003436 .anchor}Visualizzazione storico allenamenti
 
-![](media/image15.png){width="3.5759995625546805in"
+![](media/image18.png){width="3.5759995625546805in"
 height="3.5268536745406824in"}
 
-**Lancio di una sfida**
+[]{#_Toc498003437 .anchor}Lancio di una sfida
 
-![](media/image16.png){width="2.88in" height="4.572731846019248in"}
+![](media/image19.png){width="2.88in" height="4.572731846019248in"}
 
-**Accettazione di una sfida**
+[]{#_Toc498003438 .anchor}Accettazione di una sfida
 
-![](media/image17.png){width="2.7313527996500437in"
+![](media/image20.png){width="2.7313527996500437in"
 height="4.37599956255468in"}
 
 ### 4.2.3 Sequence Diagram {#sequence-diagram .Marianna3}
 
-**Accesso al sistema**
+[]{#_Toc498003440 .anchor}Accesso al sistema
 
-![](media/image18.png){width="5.823999343832021in"
+![](media/image21.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
-**Registrazione**
+[]{#_Toc498003441 .anchor}Registrazione
 
-![](media/image19.png){width="4.855555555555555in"
+![](media/image22.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
-**Acquisizione geoposizione**
+[]{#_Toc498003442 .anchor}Acquisizione geoposizione
 
-![](media/image20.png){width="4.967361111111111in"
+![](media/image23.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
-**Sessione d'allenamento**
+[]{#_Toc498003443 .anchor}Sessione d'allenamento
 
-![](media/image21.png){width="4.3277777777777775in"
+![](media/image24.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
 
 5 Testing {#testing .Marianna1}
@@ -759,26 +768,29 @@ height="2.935999562554681in"}
 5.1 Testing funzionale {#testing-funzionale .Marianna2}
 ----------------------
 
-  **Registrazione**                                                                                                                    
-  ------------------- ------------------------------------------------------- ------ --------- ---------- ---------------------------- ----------------------------
-  ID                  Email                                                   Nome   Cognome   Password   Valore atteso                Output
-  \#1                 [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara   caruso    sara       "Utente esistente"           "Utente esistente"
-  \#2                 [[jim@gmail.com]{.underline}](mailto:jim@gmail.com)     jim    jim       jim        "Registrazione avvenuta"     "Registrazione avvenuta"
-  \#3                 null@null                                               null   null      null       "Dati inseriti non validi"   "Dati inseriti non validi"
-  \#4                 jim                                                                                 "Dati inseriti non validi"   "Dati inseriti non validi"
+  []{#_Toc498003446 .anchor}Registrazione                                                                                                                    
+  ----------------------------------------- ------------------------------------------------------- ------ --------- ---------- ---------------------------- ----------------------------
+  ID                                        Email                                                   Nome   Cognome   Password   Valore atteso                Output
+  \#1                                       [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara   caruso    sara       "Utente esistente"           "Utente esistente"
+  \#2                                       [[jim@gmail.com]{.underline}](mailto:jim@gmail.com)     jim    jim       jim        "Registrazione avvenuta"     "Registrazione avvenuta"
+  \#3                                       null@null                                               null   null      null       "Dati inseriti non validi"   "Dati inseriti non validi"
+  \#4                                       jim                                                                                 "Dati inseriti non validi"   "Dati inseriti non validi"
 
-  **Accesso al sistema**                                                                                                  
-  ------------------------ ------------------------------------------------------- ---------- --------------------------- ---------------------------
-  ID                       Email                                                   Password   Valore atteso               Output
-  \#1                      [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara       "Benvenuto"                 "Benvenuto"
-  \#2                                                                                         "ATTENZIONE login errato"   "ATTENZIONE login errato"
-  \#3                      [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   aras       "ATTENZIONE login errato"   "ATTENZIONE login errato"
-  \#4                      [[aras@gmail.com]{.underline}](mailto:aras@gmail.com)   sara       "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  []{#_Toc498003447 .anchor}Accesso al sistema                                                                                                  
+  ---------------------------------------------- ------------------------------------------------------- ---------- --------------------------- ---------------------------
+  ID                                             Email                                                   Password   Valore atteso               Output
+  \#1                                            [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara       "Benvenuto"                 "Benvenuto"
+  \#2                                                                                                               "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#3                                            [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   aras       "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#4                                            [[aras@gmail.com]{.underline}](mailto:aras@gmail.com)   sara       "ATTENZIONE login errato"   "ATTENZIONE login errato"
 
 +-------------+-------------+-------------+-------------+-------------+
-| **Sessione  |
+| []{#_Toc498 |
+| 003448      |
+| .anchor}Ses |
+| sione       |
 | d'allenamen |
-| to**        |
+| to          |
 +=============+=============+=============+=============+=============+
 | ID          | Operazione  | Operazione  | Valore      | Output      |
 |             | \#1         | \#2         | atteso      |             |
@@ -802,3 +814,9 @@ height="2.935999562554681in"}
 |             |             |             | l'allenamen | l'allenamen |
 |             |             |             | to"         | to"         |
 +-------------+-------------+-------------+-------------+-------------+
+
+  []{#_Toc498003449 .anchor}Lancio di una sfida                                                               
+  ----------------------------------------------- ------------------------------------ ---------------------- ----------------------
+  ID                                              Operazione \#1                       Valore atteso          Output
+  \#1                                             Selezione marker sfidante            Visualizza "Sei qui"   Visualizza "Sei qui"
+  \#2                                             Selezione marker possibile sfidato   Visualizza "Sfidami"   Visualizza "Sfidami"
