@@ -124,16 +124,16 @@ e alla definizione e aggiornamento dello storico degli allenamenti.
 Avviata l'applicazione, l'utente già registrato potrà effettuare il
 login, altrimenti potrà procedere alla registrazione.
 
-![](media/image1.png){width="1.8125in"
-height="3.2222222222222223in"}[]{#_Toc498003411
+![](media/image1.png){width="1.7598425196850394in"
+height="3.1286089238845145in"}[]{#_Toc498009144
 .anchor}**Registrazione**: l'interfaccia consente l'inserimento di
 informazione personali: nome, cognome, email e password. Dopo aver
 confermato i dati, comparirà un messaggio di avvenuta registrazione.
 
-![](media/image2.png){width="1.7270833333333333in"
-height="3.0701388888888888in"}
+![](media/image2.png){width="1.7598425196850394in"
+height="3.1283737970253718in"}
 
-[]{#_Toc498003412 .anchor}**Login**: l'interfaccia consente
+[]{#_Toc498009145 .anchor}**Login**: l'interfaccia consente
 l'inserimento di email e password. Se le credenziali sono errate
 comparirà il messaggio "Login Errato", altrimenti l'utente potrà
 accedere alle funzionalità previste dall'applicazione.
@@ -146,7 +146,7 @@ accedere alle funzionalità previste dall'applicazione.
 
 ###  {#section-3 .Marianna3}
 
-[]{#_Toc498003413
+[]{#_Toc498009146
 .anchor}![](media/image3.png){width="1.7596806649168855in"
 height="3.1284919072615924in"}Sessione d'allenamento
 
@@ -168,12 +168,12 @@ L'interfaccia consente:
 ![](media/image4.png){width="1.7598425196850394in"
 height="3.1288440507436572in"}
 
-[]{#_Toc498003414 .anchor}Registrazione risultati allenamento
+[]{#_Toc498009147 .anchor}Registrazione risultati allenamento
 
 L'interfaccia consente la visualizzazione dei risultati dell'allenamento
 appena terminato.
 
-[]{#_Toc498003415
+[]{#_Toc498009148
 .anchor}![](media/image5.png){width="1.7598425196850394in"
 height="3.1293416447944007in"}Visualizzazione storico allenamenti
 
@@ -183,11 +183,18 @@ allenamenti terminati dall'utente.
 ![](media/image6.png){width="1.7597222222222222in"
 height="3.1284722222222223in"}
 
-[]{#_Toc498003416 .anchor}Ricerca ciclisti da sfidare
+[]{#_Toc498009149 .anchor}Ricerca ciclisti da sfidare
 
 L'interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
 momento e dà la possibilità di lanciare una sfida al ciclista scelto
 selezionando il marker corrispondente.
+
+[]{#_Toc498009150 .anchor}La sfida
+
+L'interfaccia consente di visualizzare un countdown della durata scelta
+in fase di lancio della sfida, i chilometri percorsi, le calorie
+bruciate, il percorso sulla mappa e un messaggio che informa il ciclista
+quando la sfida è stata completata.
 
 ### 3.1.1 Caratteristiche degli utenti {#caratteristiche-degli-utenti .Marianna3}
 
@@ -220,6 +227,10 @@ Social Bike Keeper si interfaccia con:
 
 -   Se un utente registrato inserisce credenziali errate non potrà
     accedere all'applicazione.
+
+-   Le sfide possono durare o 60 o 90 minuti.
+
+-   Ogni sfida comprende non più di due partecipanti.
 
 4 Requisiti specifici {#requisiti-specifici .Marianna1}
 =====================
@@ -655,9 +666,7 @@ Social Bike Keeper si interfaccia con:
 |                                   |                                   |
 |                                   | 4.  Lo sfidato accetta la sfida   |
 |                                   |                                   |
-|                                   | 5.  Lo sfidato inizia la sfida    |
-|                                   |                                   |
-|                                   | 6.  Il caso d'uso termina         |
+|                                   | 5.  Il caso d'uso termina         |
 +-----------------------------------+-----------------------------------+
 | **SCENARIO ALTERNATIVO**          | > **Lo sfidato rifiuta la sfida** |
 |                                   |                                   |
@@ -667,100 +676,190 @@ Social Bike Keeper si interfaccia con:
 |                                   | ii. Il caso d'uso termina         |
 +-----------------------------------+-----------------------------------+
 
++-----------------------------------+-----------------------------------+
+| **Caso d'uso: UC-08**             | **La sfida**                      |
++===================================+===================================+
+| **ATTORI**                        | -   Sfidante                      |
+|                                   |                                   |
+|                                   | -   Sfidato                       |
++-----------------------------------+-----------------------------------+
+| **INPUT**                         | -   Lo sfidato deve accettare la  |
+|                                   |     sfida                         |
+|                                   |                                   |
+|                                   | -   Lo sfidante deve cliccare     |
+|                                   |     sulla notifica                |
++-----------------------------------+-----------------------------------+
+| **PRECONDIZIONI**                 | -   Lo sfidante e lo sfidato      |
+|                                   |     abbiano effettuato l'accesso  |
+|                                   |     all'applicazione              |
+|                                   |                                   |
+|                                   | -   Lo sfidante e lo sfidato      |
+|                                   |     siano stati geolocalizzati    |
+|                                   |                                   |
+|                                   | -   La connessione a Internet sia |
+|                                   |     attiva                        |
++-----------------------------------+-----------------------------------+
+| **OUTPUT**                        | -   Lo sfidante e lo sfidato      |
+|                                   |     ricevono il risultato della   |
+|                                   |     sfida                         |
++-----------------------------------+-----------------------------------+
+| **POSTCONDIZIONI**                | -   Il risultato della sfida      |
+|                                   |     viene memorizzato             |
+|                                   |     nell'archivio                 |
++-----------------------------------+-----------------------------------+
+| **SCENARIO PRIMARIO**             | 1.  Lo sfidante e lo sfidato      |
+|                                   |     accedono all'applicazione     |
+|                                   |     (vedi **UC-02**)              |
+|                                   |                                   |
+|                                   | 2.  Il sistema rileva la          |
+|                                   |     geoposizione di entrambi      |
+|                                   |     (vedi **UC-03**)              |
+|                                   |                                   |
+|                                   | 3.  Sfida lanciata (vedi          |
+|                                   |     **UC-07**)                    |
+|                                   |                                   |
+|                                   | 4.  Lo sfidato inizia la sfida    |
+|                                   |                                   |
+|                                   | 5.  Lo sfidante clicca sulla      |
+|                                   |     notifica e inizia la sfida    |
+|                                   |                                   |
+|                                   | 6.  Lo sfidato termina la sfida   |
+|                                   |                                   |
+|                                   | 7.  Lo sfidante termina la sfida  |
+|                                   |                                   |
+|                                   | 8.  Il sistema informa sfidante e |
+|                                   |     sfidato dell'esito della      |
+|                                   |     sfida con una notifica        |
+|                                   |                                   |
+|                                   | 9.  Il caso d'uso termina         |
++-----------------------------------+-----------------------------------+
+| **SCENARIO ALTERNATIVO**          | > **Lo sfidato non completa la    |
+|                                   | > sfida**                         |
+|                                   |                                   |
+|                                   | i.  Lo sfidato non completa la    |
+|                                   |     sfida                         |
+|                                   |                                   |
+|                                   | ii. Il sistema informa lo         |
+|                                   |     sfidante che ha vinto la      |
+|                                   |     sfida                         |
+|                                   |                                   |
+|                                   | iii. Il caso d'uso termina        |
++-----------------------------------+-----------------------------------+
+| **SCENARIO ALTERNATIVO**          | > **Lo sfidante non completa la   |
+|                                   | > sfida**                         |
+|                                   |                                   |
+|                                   | i.  Lo sfidante non completa la   |
+|                                   |     sfida                         |
+|                                   |                                   |
+|                                   | ii. Il sistema informa lo sfidato |
+|                                   |     che ha vinto la sfida         |
+|                                   |                                   |
+|                                   | iii. Il caso d'uso termina        |
++-----------------------------------+-----------------------------------+
+
 4.2 Diagrammi UML {#diagrammi-uml .Marianna2}
 -----------------
 
 ### 4.2.1 Use Case Diagram {#use-case-diagram .Marianna3}
 
-[]{#_Toc498003424 .anchor}Registrazione
+[]{#_Toc498009158 .anchor}Registrazione
 
 ![](media/image7.png){width="7.198611111111111in"
 height="2.4959995625546805in"}
 
-[]{#_Toc498003425 .anchor}Accesso al sistema
+[]{#_Toc498009159 .anchor}Accesso al sistema
 
 ![](media/image8.png){width="6.895833333333333in"
 height="2.4680544619422573in"}
 
-[]{#_Toc498003426 .anchor}Acquisizione geoposizione
+[]{#_Toc498009160 .anchor}Acquisizione geoposizione
 
 ![](media/image9.png){width="6.864583333333333in"
 height="2.399040901137358in"}
 
-[]{#_Toc498003427 .anchor}Sessione d'allenamento
+[]{#_Toc498009161 .anchor}Sessione d'allenamento
 
 ![](media/image10.png){width="6.979166666666667in"
 height="2.4992957130358704in"}
 
-[]{#_Toc498003428 .anchor}Visualizzazione storico allenamenti
+[]{#_Toc498009162 .anchor}Visualizzazione storico allenamenti
 
 ![](media/image11.png){width="5.351999125109361in"
 height="2.280985345581802in"}
 
-[]{#_Toc498003429 .anchor}Lancio di una sfida
+[]{#_Toc498009163 .anchor}Lancio di una sfida
 
 ![](media/image12.png){width="6.2in" height="2.186895231846019in"}
 
-[]{#_Toc498003430 .anchor}Accettazione di una sfida
+[]{#_Toc498009164 .anchor}Accettazione di una sfida
 
 ![](media/image13.png){width="6.33599956255468in"
 height="2.2870199037620296in"}
 
 ### 4.2.2 Activity Diagram {#activity-diagram .Marianna3}
 
-[]{#_Toc498003432 .anchor}Registrazione
+[]{#_Toc498009166 .anchor}Registrazione
 
 ![](media/image14.png){width="5.421172353455818in" height="8.46875in"}
 
-[]{#_Toc498003433 .anchor}Accesso al sistema
+[]{#_Toc498009167 .anchor}Accesso al sistema
 
 ![](media/image15.png){width="4.014095581802275in"
 height="8.385416666666666in"}
 
-[]{#_Toc498003434 .anchor}Acquisizione geoposizione
+[]{#_Toc498009168 .anchor}Acquisizione geoposizione
 
 ![](media/image16.png){width="4.395833333333333in"
 height="4.295402449693788in"}
 
-[]{#_Toc498003435 .anchor}Sessione d'allenamento
+[]{#_Toc498009169 .anchor}Sessione d'allenamento
 
 ![](media/image17.png){width="3.90625in" height="3.7508869203849518in"}
 
-[]{#_Toc498003436 .anchor}Visualizzazione storico allenamenti
+[]{#_Toc498009170 .anchor}Visualizzazione storico allenamenti
 
 ![](media/image18.png){width="3.5759995625546805in"
 height="3.5268536745406824in"}
 
-[]{#_Toc498003437 .anchor}Lancio di una sfida
+[]{#_Toc498009171 .anchor}Lancio di una sfida
 
 ![](media/image19.png){width="2.88in" height="4.572731846019248in"}
 
-[]{#_Toc498003438 .anchor}Accettazione di una sfida
+[]{#_Toc498009172 .anchor}Accettazione di una sfida
 
 ![](media/image20.png){width="2.7313527996500437in"
 height="4.37599956255468in"}
 
 ### 4.2.3 Sequence Diagram {#sequence-diagram .Marianna3}
 
-[]{#_Toc498003440 .anchor}Accesso al sistema
+[]{#_Toc498009174 .anchor}Accesso al sistema
 
 ![](media/image21.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
-[]{#_Toc498003441 .anchor}Registrazione
+[]{#_Toc498009175 .anchor}Registrazione
 
 ![](media/image22.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
-[]{#_Toc498003442 .anchor}Acquisizione geoposizione
+[]{#_Toc498009176 .anchor}Acquisizione geoposizione
 
 ![](media/image23.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
-[]{#_Toc498003443 .anchor}Sessione d'allenamento
+[]{#_Toc498009177 .anchor}Sessione d'allenamento
 
 ![](media/image24.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
+
+[]{#_Toc498009178 .anchor}La sfida -- lato sfidante
+
+![](media/image25.png){width="6.34375in" height="7.193359580052493in"}
+
+[]{#_Toc498009179 .anchor}La sfida -- lato sfidato
+
+![](media/image26.png){width="6.010416666666667in"
+height="6.0605030621172356in"}
 
 5 Testing {#testing .Marianna1}
 =========
@@ -768,7 +867,7 @@ height="2.935999562554681in"}
 5.1 Testing funzionale {#testing-funzionale .Marianna2}
 ----------------------
 
-  []{#_Toc498003446 .anchor}Registrazione                                                                                                                    
+  []{#_Toc498009182 .anchor}Registrazione                                                                                                                    
   ----------------------------------------- ------------------------------------------------------- ------ --------- ---------- ---------------------------- ----------------------------
   ID                                        Email                                                   Nome   Cognome   Password   Valore atteso                Output
   \#1                                       [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara   caruso    sara       "Utente esistente"           "Utente esistente"
@@ -776,7 +875,7 @@ height="2.935999562554681in"}
   \#3                                       null@null                                               null   null      null       "Dati inseriti non validi"   "Dati inseriti non validi"
   \#4                                       jim                                                                                 "Dati inseriti non validi"   "Dati inseriti non validi"
 
-  []{#_Toc498003447 .anchor}Accesso al sistema                                                                                                  
+  []{#_Toc498009183 .anchor}Accesso al sistema                                                                                                  
   ---------------------------------------------- ------------------------------------------------------- ---------- --------------------------- ---------------------------
   ID                                             Email                                                   Password   Valore atteso               Output
   \#1                                            [[sara@gmail.com]{.underline}](mailto:sara@gmail.com)   sara       "Benvenuto"                 "Benvenuto"
@@ -786,7 +885,7 @@ height="2.935999562554681in"}
 
 +-------------+-------------+-------------+-------------+-------------+
 | []{#_Toc498 |
-| 003448      |
+| 009184      |
 | .anchor}Ses |
 | sione       |
 | d'allenamen |
@@ -815,7 +914,7 @@ height="2.935999562554681in"}
 |             |             |             | to"         | to"         |
 +-------------+-------------+-------------+-------------+-------------+
 
-  []{#_Toc498003449 .anchor}Lancio di una sfida                                                               
+  []{#_Toc498009185 .anchor}Lancio di una sfida                                                               
   ----------------------------------------------- ------------------------------------ ---------------------- ----------------------
   ID                                              Operazione \#1                       Valore atteso          Output
   \#1                                             Selezione marker sfidante            Visualizza "Sei qui"   Visualizza "Sei qui"
