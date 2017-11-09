@@ -33,7 +33,8 @@
             android:label="@string/title_activity_registration" />
         <activity android:name=".TrainingActivity" />
         <activity android:name=".RisultatiActivity" />
-        <activity android:name=".StoricoActivity"></activity>
+        <activity android:name=".StoricoActivity" />
+        <activity android:name=".LanciaSfidaActivity"></activity>
     </application>
 
 </manifest>
