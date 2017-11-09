@@ -73,12 +73,11 @@ public class LanciaSfidaActivity extends AppCompatActivity implements
 * */
     private void mostraVicini() {
         Toast.makeText(getApplicationContext(),"Scegli il tuo sfidante", Toast.LENGTH_LONG).show();
-//        Invia invia=new Invia("http://socialbikeeper.altervista.org/getneighbors.php");
-//        String a=invia.doInBackground();
-        String a = ("sara@gmail.com*41.1310415*14.7772164_mariannafucci@gmail.com*41.1325694*14.7791458_");
+        Invia invia=new Invia("http://socialbikeeper.altervista.org/getneighbors.php");
+        String a=invia.doInBackground();
         String [] vicini=a.split("_");
 
-        for (int i=0;i<=vicini.length-1;i++){
+        for (int i=0;i<vicini.length-1;i++){
             emailpossSfidato=vicini[i].split("\\*")[0];
             double latitudine=Double.parseDouble(vicini[i].split("\\*")[1]);
             double longitudine=Double.parseDouble(vicini[i].split("\\*")[2]);
