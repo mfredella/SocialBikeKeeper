@@ -125,7 +125,7 @@ Avviata l’applicazione, l’utente già registrato potrà effettuare il
 login, altrimenti potrà procedere alla registrazione.
 
 ![](media/image1.png){width="1.7598425196850394in"
-height="3.1286089238845145in"}[]{#_Toc498009144
+height="3.1286089238845145in"}[]{#_Toc498091136
 .anchor}**Registrazione**: l’interfaccia consente l’inserimento di
 informazione personali: nome, cognome, email e password. Dopo aver
 confermato i dati, comparirà un messaggio di avvenuta registrazione.
@@ -133,7 +133,7 @@ confermato i dati, comparirà un messaggio di avvenuta registrazione.
 ![](media/image2.png){width="1.7598425196850394in"
 height="3.1283737970253718in"}
 
-[]{#_Toc498009145 .anchor}**Login**: l’interfaccia consente
+[]{#_Toc498091137 .anchor}**Login**: l’interfaccia consente
 l’inserimento di email e password. Se le credenziali sono errate
 comparirà il messaggio “Login Errato”, altrimenti l’utente potrà
 accedere alle funzionalità previste dall’applicazione.
@@ -146,7 +146,7 @@ accedere alle funzionalità previste dall’applicazione.
 
 ###  {#section-3 .Marianna3}
 
-[]{#_Toc498009146
+[]{#_Toc498091138
 .anchor}![](media/image3.png){width="1.7596806649168855in"
 height="3.1284919072615924in"}Sessione d’allenamento
 
@@ -168,12 +168,12 @@ L’interfaccia consente:
 ![](media/image4.png){width="1.7598425196850394in"
 height="3.1288440507436572in"}
 
-[]{#_Toc498009147 .anchor}Registrazione risultati allenamento
+[]{#_Toc498091139 .anchor}Registrazione risultati allenamento
 
 L’interfaccia consente la visualizzazione dei risultati dell’allenamento
 appena terminato.
 
-[]{#_Toc498009148
+[]{#_Toc498091140
 .anchor}![](media/image5.png){width="1.7598425196850394in"
 height="3.1293416447944007in"}Visualizzazione storico allenamenti
 
@@ -183,13 +183,13 @@ allenamenti terminati dall’utente.
 ![](media/image6.png){width="1.7597222222222222in"
 height="3.1284722222222223in"}
 
-[]{#_Toc498009149 .anchor}Ricerca ciclisti da sfidare
+[]{#_Toc498091141 .anchor}Ricerca ciclisti da sfidare
 
 L’interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
 momento e dà la possibilità di lanciare una sfida al ciclista scelto
 selezionando il marker corrispondente.
 
-[]{#_Toc498009150 .anchor}La sfida
+[]{#_Toc498091142 .anchor}La sfida
 
 L’interfaccia consente di visualizzare un countdown della durata scelta
 in fase di lancio della sfida, i chilometri percorsi, le calorie
@@ -641,31 +641,31 @@ Social Bike Keeper si interfaccia con:
 
 ### 4.2.1 Sequence Diagram {#sequence-diagram .Marianna3}
 
-[]{#_Toc498009174 .anchor}Accesso al sistema
+[]{#_Toc498091150 .anchor}Accesso al sistema
 
 ![](media/image7.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
-[]{#_Toc498009175 .anchor}Registrazione
+[]{#_Toc498091151 .anchor}Registrazione
 
 ![](media/image8.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
-[]{#_Toc498009176 .anchor}Acquisizione geoposizione
+[]{#_Toc498091152 .anchor}Acquisizione geoposizione
 
 ![](media/image9.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
-[]{#_Toc498009177 .anchor}Sessione d’allenamento
+[]{#_Toc498091153 .anchor}Sessione d’allenamento
 
 ![](media/image10.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
 
-[]{#_Toc498009178 .anchor}La sfida – lato sfidante
+[]{#_Toc498091154 .anchor}La sfida – lato sfidante
 
 ![](media/image11.png){width="6.34375in" height="7.193359580052493in"}
 
-[]{#_Toc498009179 .anchor}La sfida – lato sfidato
+[]{#_Toc498091155 .anchor}La sfida – lato sfidato
 
 ![](media/image12.png){width="6.010416666666667in"
 height="6.0605030621172356in"}
@@ -673,39 +673,52 @@ height="6.0605030621172356in"}
 5 Testing {#testing .Marianna1}
 =========
 
-5.1 Testing funzionale {#testing-funzionale .Marianna2}
-----------------------
+Black box testing {#black-box-testing .Marianna2}
+-----------------
 
-  []{#_Toc498009182 .anchor}Registrazione
-  ----------------------------------------- ------------------------------------------- ------ --------- ---------- ---------------------------- ----------------------------
-  ID                                        Email                                       Nome   Cognome   Password   Valore atteso                Output
-  \#1                                       [*sara@gmail.com*](mailto:sara@gmail.com)   sara   caruso    sara       “Utente esistente”           “Utente esistente”
-  \#2                                       [*jim@gmail.com*](mailto:jim@gmail.com)     jim    jim       jim        “Registrazione avvenuta”     “Registrazione avvenuta”
-  \#3                                       null@null                                   null   null      null       “Dati inseriti non validi”   “Dati inseriti non validi”
-  \#4                                       jim                                                                     “Dati inseriti non validi”   “Dati inseriti non validi”
+Il testing black box è stato effettuato creando per ogni Activity un
+caso di Test e simulando il comportamento dell’applicazione in risposta
+agli input dell’utente tramite apposite librerie quali: Espresso,
+UiAnimator e ActivityInstrumentationTestCase2.
 
-  []{#_Toc498009183 .anchor}Accesso al sistema
-  ---------------------------------------------- ------------------------------------------- ---------- --------------------------- ---------------------------
-  ID                                             Email                                       Password   Valore atteso               Output
-  \#1                                            [*sara@gmail.com*](mailto:sara@gmail.com)   sara       “Benvenuto”                 “Benvenuto”
-  \#2                                                                                                   “ATTENZIONE login errato”   “ATTENZIONE login errato”
-  \#3                                            [*sara@gmail.com*](mailto:sara@gmail.com)   aras       “ATTENZIONE login errato”   “ATTENZIONE login errato”
-  \#4                                            [*aras@gmail.com*](mailto:aras@gmail.com)   sara       “ATTENZIONE login errato”   “ATTENZIONE login errato”
+  []{#_Toc498091158 .anchor}Registrazione
+  ----------------------------------------- ---------------------- ---------------------------- ------------- -------------- ----------------- ---------------------------- ----------------------------
+  Choice                                    Categories             Enviroment characteristics   
+                                            **Email**              **Nome**                     **Cognome**
+  \#1                                       “*<sara@gmail.com>”*   “sara”                       “caruso”
+  \#2                                       “*<jim@gmail.com>”*    “jim”                        “jim”
+  \#3                                       “null@null”            “null”                       “null”
+  \#4                                       “jim”                  “”                           “”
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  []{#_Toc498009184 .anchor}Sessione d’allenamento
-  -------------------------------------------------- ----------------------- ---------------------- ---------------------------------------------------------------------- ----------------------------------------------------------------------
-  ID                                                 Operazione \#1          Operazione \#2         Valore atteso                                                          Output
+  []{#_Toc498091159 .anchor}Accesso al sistema
+  ---------------------------------------------- ---------------------- ---------------------------- ----------------- --------------------------- ---------------------------
+  Choice                                         Categories             Enviroment characteristics   
+                                                 Email                  Password                     **GPS/Network**
+  \#1                                            “*<sara@gmail.com>”*   “sara”                       Attivo/Attivo
+  \#2                                            “”                     “”                           Attivo/Attivo
+  \#3                                            “*<sara@gmail.com>”*   “aras”                       Attivo/Attivo
+  \#4                                            “*<aras@gmail.com>”*   “sara”                       Attivo/Attivo
 
-  \#1                                                Selezione tasto Start   Selezione tasto Stop   Parte il cronometro Valore Chilometri e Valore Calorie sono visibili   Parte il cronometro Valore Chilometri e Valore Calorie sono visibili
-                                                                                                                                                                           
-                                                                                                    Visualizza i risultati                                                 Visualizza i risultati
+  []{#_Toc498091160 .anchor}Sessione d’allenamento
+  -------------------------------------------------- ----------------------- ---------------------------- ----------------- ---------------------------------------------------------------------- ----------------------------------------------------------------------
+  **Choice**                                         **Categories**          Enviroment characteristics   
+                                                     **Operazione \#1**      **Operazione \#2**           **GPS/Network**
+  \#1                                                Selezione tasto Start                                Attivo/Attivo
+  \#2                                                Selezione tasto Start   Selezione tasto Stop         Attivo/Attivo
+  \#3                                                Selezione tasto Stop                                 Attivo/Attivo
 
-  \#2                                                Selezione tasto Stop                           “Devi premere Start prima di iniziare l’allenamento”                   “Devi premere Start prima di iniziare l’allenamento”
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  []{#_Toc498091161 .anchor}Lancio di una sfida
+  ----------------------------------------------- ------------------------------------ ----------------------------- ---------------------- ----------------------
+  Choice                                          Categories                           Enviroments characteristics   
+                                                  **Operazione \#1**                   **GPS/Network**               **Valore atteso**
+  \#1                                             Selezione marker sfidante            Attivo/Attivo                 Visualizza “Sei qui”
+  \#2                                             Selezione marker possibile sfidato   Attivo/Attivo                 Visualizza “Sfidami”
 
-  []{#_Toc498009185 .anchor}Lancio di una sfida
-  ----------------------------------------------- ------------------------------------ ---------------------- ----------------------
-  ID                                              Operazione \#1                       Valore atteso          Output
-  \#1                                             Selezione marker sfidante            Visualizza “Sei qui”   Visualizza “Sei qui”
-  \#2                                             Selezione marker possibile sfidato   Visualizza “Sfidami”   Visualizza “Sfidami”
+Coverage test {#coverage-test .Marianna2}
+-------------
+
+Al fine di disporre di una valutazione quantitativa del livello di
+copertura dei test, è stato utilizzato il tool *Jacoco*. Esso ci ha
+fornito un report con i dettagli sulla percentuale delle righe di codice
+coperte dai test e, più precisamente, evidenzia in verde e in rosso
+rispettivamente le righe di codice coperte o meno.
