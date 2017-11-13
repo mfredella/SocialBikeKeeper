@@ -322,4 +322,7 @@ seguire una attività di testing guidata dal codice.
     la UI di applicazioni Android
 
 -   **Altervista**: servizio di hosting gratuito utilizzato per creare
-    un database MySQL, gestito tramite script PHP.
+    un database MySQL, gestito tramite script PHP
+
+-   **Trabis CI:** servizio di continuous integration utilizzato per
+    effettuare build e testing del progetto Android ospitato in GitHub.
