@@ -397,7 +397,8 @@ public class TrainingActivity extends AppCompatActivity implements
         int id=item.getItemId();
         switch(id) {
             case R.id.item_menu_storico:
-                Toast.makeText(getApplicationContext(),"Activity da implementare",Toast.LENGTH_LONG).show();
+                Intent openStorico = new Intent(getApplicationContext(),StoricoActivity.class);
+                startActivity(openStorico);
                 break;
             case R.id.item_menu_logout:
                 Toast.makeText(getApplicationContext(), "Logout: "+emailLog, Toast.LENGTH_LONG).show();
