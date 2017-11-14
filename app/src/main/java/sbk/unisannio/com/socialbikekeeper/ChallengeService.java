@@ -55,6 +55,22 @@ public class ChallengeService extends IntentService {
                     }
 
                 }
+                else if(statosfida==1){
+                    if(TrainingActivity.getEmail().equals(sfidante)){
+                        NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
+                                .setContentTitle("La tua sfida è stata accettata da")
+                                .setContentText(sfidato)
+                                .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setAutoCancel(true)
+                                .setSound(sound)
+                                .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        notificationManager.notify(0, n.build());
+                        Invia rifiutaSfida = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+5);
+                        rifiutaSfida.doInBackground();
+                    }
+                }
             }
         }
     }
