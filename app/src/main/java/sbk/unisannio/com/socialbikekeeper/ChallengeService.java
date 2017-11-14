@@ -36,6 +36,8 @@ public class ChallengeService extends IntentService {
 
 
                 if (statosfida == 0) {
+                    Intent pe = new Intent(this, NotificaActivity.class);
+                    PendingIntent pi = PendingIntent.getActivity(this, 0, pe, 0);
 
                     if (!TrainingActivity.getEmail().equals(sfidante) && TrainingActivity.getEmail().equals(sfidato)) {
 
@@ -43,6 +45,7 @@ public class ChallengeService extends IntentService {
                                 .setContentTitle("Hai una nuova sfida di " + durata + " minuti da:")
                                 .setContentText(sfidante)
                                 .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setContentIntent(pi)
                                 .setAutoCancel(true)
                                 .setSound(sound)
                                 .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000});

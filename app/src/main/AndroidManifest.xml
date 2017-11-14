@@ -38,7 +38,9 @@
 
         <service
             android:name=".ChallengeService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".NotificaActivity"></activity>
     </application>
 
 </manifest>
