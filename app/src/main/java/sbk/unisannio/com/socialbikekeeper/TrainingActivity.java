@@ -229,7 +229,6 @@ public class TrainingActivity extends AppCompatActivity implements
         STARTING_POINT=new LatLng(startingPoint.getLatitude(), startingPoint.getLongitude());
         latitudine= ""+startingPoint.getLatitude();
         longitudine=""+startingPoint.getLongitude();
-        Toast.makeText(getApplicationContext(),"onConnected: "+latitudine+" "+longitudine,Toast.LENGTH_LONG).show();
 
     }
 
