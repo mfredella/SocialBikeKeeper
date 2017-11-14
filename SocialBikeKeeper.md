@@ -125,7 +125,7 @@ Avviata l'applicazione, l'utente già registrato potrà effettuare il
 login, altrimenti potrà procedere alla registrazione.
 
 ![](media/image1.png){width="1.7598425196850394in"
-height="3.1286089238845145in"}[]{#_Toc498437666
+height="3.1286089238845145in"}[]{#_Toc498440549
 .anchor}**Registrazione**: l'interfaccia consente l'inserimento di
 informazione personali: nome, cognome, email e password. Dopo aver
 confermato i dati, comparirà un messaggio di avvenuta registrazione.
@@ -133,7 +133,7 @@ confermato i dati, comparirà un messaggio di avvenuta registrazione.
 ![](media/image2.png){width="1.7598425196850394in"
 height="3.1283737970253718in"}
 
-[]{#_Toc498437667 .anchor}**Login**: l'interfaccia consente
+[]{#_Toc498440550 .anchor}**Login**: l'interfaccia consente
 l'inserimento di email e password. Se le credenziali sono errate
 comparirà il messaggio "Login Errato", altrimenti l'utente potrà
 accedere alle funzionalità previste dall'applicazione.
@@ -146,7 +146,7 @@ accedere alle funzionalità previste dall'applicazione.
 
 ###  {#section-3 .Marianna3}
 
-[]{#_Toc498437668
+[]{#_Toc498440551
 .anchor}![](media/image3.png){width="1.7596806649168855in"
 height="3.1284919072615924in"}Sessione d'allenamento
 
@@ -168,12 +168,12 @@ L'interfaccia consente:
 ![](media/image4.png){width="1.7598425196850394in"
 height="3.1288440507436572in"}
 
-[]{#_Toc498437669 .anchor}Registrazione risultati allenamento
+[]{#_Toc498440552 .anchor}Registrazione risultati allenamento
 
 L'interfaccia consente la visualizzazione dei risultati dell'allenamento
 appena terminato.
 
-[]{#_Toc498437670
+[]{#_Toc498440553
 .anchor}![](media/image5.png){width="1.7598425196850394in"
 height="3.1293416447944007in"}Visualizzazione storico allenamenti
 
@@ -183,13 +183,13 @@ allenamenti terminati dall'utente.
 ![](media/image6.png){width="1.7597222222222222in"
 height="3.1284722222222223in"}
 
-[]{#_Toc498437671 .anchor}Ricerca ciclisti da sfidare
+[]{#_Toc498440554 .anchor}Ricerca ciclisti da sfidare
 
 L'interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
 momento e dà la possibilità di lanciare una sfida al ciclista scelto
 selezionando il marker corrispondente.
 
-[]{#_Toc498437672 .anchor}La sfida
+[]{#_Toc498440555 .anchor}La sfida
 
 L'interfaccia consente di visualizzare un countdown della durata scelta
 in fase di lancio della sfida, i chilometri percorsi, le calorie
@@ -727,31 +727,31 @@ Social Bike Keeper si interfaccia con:
 
 ### 4.2.1 Sequence Diagram {#sequence-diagram .Marianna3}
 
-[]{#_Toc498437680 .anchor}Accesso al sistema
+[]{#_Toc498440563 .anchor}Accesso al sistema
 
 ![](media/image7.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
-[]{#_Toc498437681 .anchor}Registrazione
+[]{#_Toc498440564 .anchor}Registrazione
 
 ![](media/image8.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
-[]{#_Toc498437682 .anchor}Acquisizione geoposizione
+[]{#_Toc498440565 .anchor}Acquisizione geoposizione
 
 ![](media/image9.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
-[]{#_Toc498437683 .anchor}Sessione d'allenamento
+[]{#_Toc498440566 .anchor}Sessione d'allenamento
 
 ![](media/image10.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
 
-[]{#_Toc498437684 .anchor}La sfida -- lato sfidante
+[]{#_Toc498440567 .anchor}La sfida -- lato sfidante
 
 ![](media/image11.png){width="6.34375in" height="7.193359580052493in"}
 
-[]{#_Toc498437685 .anchor}La sfida -- lato sfidato
+[]{#_Toc498440568 .anchor}La sfida -- lato sfidato
 
 ![](media/image12.png){width="6.010416666666667in"
 height="6.0605030621172356in"}
@@ -772,38 +772,47 @@ caso di Test e simulando il comportamento dell'applicazione in risposta
 agli input dell'utente tramite apposite librerie quali: Espresso,
 UiAnimator e ActivityInstrumentationTestCase2.
 
-  []{#_Toc498437689 .anchor}Registrazione                                                                                                                                                                             
-  ----------------------------------------- -------------------------------------- ------------------------------------------------------ ------------- -------------- ----------------- ---------------------------- ----------------------------
-  []{#_Toc498437690 .anchor}Choice          []{#_Toc498437691 .anchor}Categories   []{#_Toc498437692 .anchor}Enviroment characteristics                                                                               
-                                            **Email**                              **Nome**                                               **Cognome**   **Password**   **GPS/Network**   **Valore atteso**            **Output**
-  \#1                                       "[<sara@gmail.com>"]{.underline}       "sara"                                                 "caruso"      "sara"         Attivo/Attivo     "Utente esistente"           "Utente esistente"
-  \#2                                       "[<jim@gmail.com>"]{.underline}        "jim"                                                  "jim"         "jim"          Attivo/Attivo     "Registrazione avvenuta"     "Registrazione avvenuta"
-  \#3                                       "null@null"                            "null"                                                 "null"        "null"         Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
-  \#4                                       "jim"                                  ""                                                     ""            ""             Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
+  []{#_Toc498440572 .anchor}Registrazione                                                                                                                                                   
+  ----------------------------------------- ---------------------------------- -------------------------------- ------------- -------------- ----------------- ---------------------------- ----------------------------
+  **Choice**                                **Categories**                     **Enviroment characteristics**                                                                               
+                                            **Email**                          **Nome**                         **Cognome**   **Password**   **GPS/Network**   **Valore atteso**            **Output**
+  \#1                                       "[<sara@gmail.com>"]{.underline}   "sara"                           "caruso"      "sara"         Attivo/Attivo     "Utente esistente"           "Utente esistente"
+  \#2                                       "[<jim@gmail.com>"]{.underline}    "jim"                            "jim"         "jim"          Attivo/Attivo     "Registrazione avvenuta"     "Registrazione avvenuta"
+  \#3                                       "null@null"                        "null"                           "null"        "null"         Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
+  \#4                                       "jim"                              ""                               ""            ""             Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
 
-  []{#_Toc498437693 .anchor}Accesso al sistema                                                                                                                                               
-  ---------------------------------------------- -------------------------------------- ------------------------------------------------------ ----------------- --------------------------- ---------------------------
-  []{#_Toc498437694 .anchor}Choice               []{#_Toc498437695 .anchor}Categories   []{#_Toc498437696 .anchor}Enviroment characteristics                                                 
-                                                 Email                                  Password                                               **GPS/Network**   Valore atteso               Output
-  \#1                                            "[<sara@gmail.com>"]{.underline}       "sara"                                                 Attivo/Attivo     "Benvenuto"                 "Benvenuto"
-  \#2                                            ""                                     ""                                                     Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
-  \#3                                            "[<sara@gmail.com>"]{.underline}       "aras"                                                 Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
-  \#4                                            "[<aras@gmail.com>"]{.underline}       "sara"                                                 Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  []{#_Toc498440573 .anchor}Accesso al sistema                                                                                                                     
+  ---------------------------------------------- ---------------------------------- -------------------------------- ----------------- --------------------------- ---------------------------
+  **Choice**                                     **Categories**                     **Enviroment characteristics**                                                 
+                                                 Email                              Password                         **GPS/Network**   Valore atteso               Output
+  \#1                                            "[<sara@gmail.com>"]{.underline}   "sara"                           Attivo/Attivo     "Benvenuto"                 "Benvenuto"
+  \#2                                            ""                                 ""                               Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#3                                            "[<sara@gmail.com>"]{.underline}   "aras"                           Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
+  \#4                                            "[<aras@gmail.com>"]{.underline}   "sara"                           Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
 
-  []{#_Toc498437697 .anchor}Sessione d'allenamento                                                                                                                                                                           
-  -------------------------------------------------- ----------------------- ------------------------------------------------------ ----------------- ---------------------------------------------------------------------- ----------------------------------------------------------------------
-  **Choice**                                         **Categories**          []{#_Toc498437698 .anchor}Enviroment characteristics                                                                                            
-                                                     **Operazione \#1**      **Operazione \#2**                                     **GPS/Network**   **Valore atteso**                                                      **Output**
-  \#1                                                Selezione tasto Start                                                          Attivo/Attivo     Parte il cronometro Valore Chilometri e Valore Calorie sono visibili   Parte il cronometro Valore Chilometri e Valore Calorie sono visibili
-  \#2                                                Selezione tasto Start   Selezione tasto Stop                                   Attivo/Attivo     Visualizza i risultati                                                 Visualizza i risultati
-  \#3                                                Selezione tasto Stop                                                           Attivo/Attivo     "Devi premere Start prima di iniziare l'allenamento"                   "Devi premere Start prima di iniziare l'allenamento"
+  []{#_Toc498440574 .anchor}Sessione d'allenamento                                                                                                                                                     
+  -------------------------------------------------- ----------------------- -------------------------------- ----------------- ---------------------------------------------------------------------- ----------------------------------------------------------------------
+  **Choice**                                         **Categories**          **Enviroment characteristics**                                                                                            
+                                                     **Operazione \#1**      **Operazione \#2**               **GPS/Network**   **Valore atteso**                                                      **Output**
+  \#1                                                Selezione tasto Start                                    Attivo/Attivo     Parte il cronometro Valore Chilometri e Valore Calorie sono visibili   Parte il cronometro Valore Chilometri e Valore Calorie sono visibili
+  \#2                                                Selezione tasto Start   Selezione tasto Stop             Attivo/Attivo     Visualizza i risultati                                                 Visualizza i risultati
+  \#3                                                Selezione tasto Stop                                     Attivo/Attivo     "Devi premere Start prima di iniziare l'allenamento"                   "Devi premere Start prima di iniziare l'allenamento"
 
-  []{#_Toc498437699 .anchor}Lancio di una sfida                                                                                                                         
-  ----------------------------------------------- -------------------------------------- ------------------------------------------------------- ---------------------- ----------------------
-  []{#_Toc498437700 .anchor}Choice                []{#_Toc498437701 .anchor}Categories   []{#_Toc498437702 .anchor}Enviroments characteristics                          
-                                                  **Operazione \#1**                     **GPS/Network**                                         **Valore atteso**      **Output**
-  \#1                                             Selezione marker sfidante              Attivo/Attivo                                           Visualizza "Sei qui"   Visualizza "Sei qui"
-  \#2                                             Selezione marker possibile sfidato     Attivo/Attivo                                           Visualizza "Sfidami"   Visualizza "Sfidami"
+  []{#_Toc498440575 .anchor}Lancio di una sfida                                                                                                 
+  ----------------------------------------------- ------------------------------------ --------------------------------- ---------------------- ----------------------
+  **Choice**                                      **Categories**                       **Enviroments characteristics**                          
+                                                  **Operazione \#1**                   **GPS/Network**                   **Valore atteso**      **Output**
+  \#1                                             Selezione marker sfidante            Attivo/Attivo                     Visualizza "Sei qui"   Visualizza "Sei qui"
+  \#2                                             Selezione marker possibile sfidato   Attivo/Attivo                     Visualizza "Sfidami"   Visualizza "Sfidami"
+
+  []{#_Toc498440576 .anchor}Challenge                                                                                      
+  ------------------------------------- -------------------------------- ------------------------------------------------- -------------------------------------------------
+  **Choice**                            **Categories**                                                                     
+                                        **Operazione \#1**               **Valore atteso**                                 **Output**
+  \#1                                   Visualizza notifica              "Hai una nuova sfida di 60 minuti da:"            "Hai una nuova sfida di 60 minuti da:"
+  \#2                                   Selezione notifica               "Accetti la Sfida?"                               "Accetti la Sfida?"
+  \#3                                   Seleziona "NO" (Rifiuta sfida)   Visualizza schermata per sessione d'allenamento   Visualizza schermata per sessione d'allenamento
+  \#4                                   Seleziona "SI" (Accetta sfida)   "Sfida accettata, activity da implementare"       "Sfida accettata, activity da implementare"
 
 Coverage test {#coverage-test .Marianna2}
 -------------
