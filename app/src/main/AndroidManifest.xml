@@ -34,7 +34,13 @@
         <activity android:name=".TrainingActivity" />
         <activity android:name=".RisultatiActivity" />
         <activity android:name=".StoricoActivity" />
-        <activity android:name=".LanciaSfidaActivity"></activity>
+        <activity android:name=".LanciaSfidaActivity" />
+
+        <service
+            android:name=".ChallengeService"
+            android:exported="false" />
+
+        <activity android:name=".NotificaActivity"></activity>
     </application>
 
 </manifest>

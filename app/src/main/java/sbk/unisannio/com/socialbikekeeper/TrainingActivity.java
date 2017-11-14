@@ -311,6 +311,9 @@ public class TrainingActivity extends AppCompatActivity implements
     public void onResume() {
         super.onResume();
 
+        Intent toService = new Intent(this, ChallengeService.class);
+        startService(toService);
+
         start = (Button) findViewById(R.id.start_button);
 
         start.setOnClickListener(new View.OnClickListener() {
