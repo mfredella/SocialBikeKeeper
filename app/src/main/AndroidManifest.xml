@@ -40,7 +40,8 @@
             android:name=".ChallengeService"
             android:exported="false" />
 
-        <activity android:name=".NotificaActivity"></activity>
+        <activity android:name=".NotificaActivity" />
+        <activity android:name=".SfidaActivity"></activity>
     </application>
 
 </manifest>
