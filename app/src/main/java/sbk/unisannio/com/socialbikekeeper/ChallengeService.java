@@ -105,6 +105,87 @@ public class ChallengeService extends IntentService {
                     }
 
                 }
+                else if(statosfida==4){
+                    Intent pe2=new Intent(this,TrainingActivity.class);
+                    PendingIntent pi2=PendingIntent.getActivity(this, 0, pe2, 0);
+                    Invia result =new Invia("http://socialbikeeper.altervista.org/getchallengeresult.php?sfidante="+sfidante+"&sfidato="+sfidato);
+                    String r=result.doInBackground();
+
+                    String [] km=r.split("\\*");
+                    Double kmsfidante = null;
+                    Double kmsfidato = null;
+
+                    kmsfidante = Double.parseDouble(km[0]);
+
+                    if(km[1].split("\\\n")[0].equals("_"))
+                        kmsfidato=0.0;
+                    else
+                        kmsfidato = Double.parseDouble(km[1].split("_")[0]);
+
+
+                    if((TrainingActivity.getEmail()).equals(sfidante)){
+                        if(kmsfidante>kmsfidato){
+
+                            Double diffKm = kmsfidante-kmsfidato;
+
+                            NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
+                                    .setContentTitle("Hai vinto la sfida!")
+                                    .setContentText("Tu hai percorso "+diffKm+" km in più di "+sfidato)
+                                    .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                    .setAutoCancel(true)
+                                    .setSound(sound).
+                                            setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                            notificationManager.notify(0, n.build());
+                            Invia setStato = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+3);
+                            setStato.doInBackground();
+                        }
+                        else{
+                            Double diffKm = kmsfidato-kmsfidante;
+                            NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
+                                    .setContentTitle("Hai perso la sfida!")
+                                    .setContentText("Tu hai percorso "+diffKm+" km in meno di "+sfidato)
+                                    .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                    .setAutoCancel(true)
+                                    .setSound(sound).
+                                            setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                            notificationManager.notify(0, n.build());
+                            Invia setStato = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+3);
+                            setStato.doInBackground();
+                        }
+                    }
+                    else if(!(TrainingActivity.getEmail()).equals(sfidante)){
+                        if(kmsfidato>kmsfidante){
+                            Double diffKm = kmsfidato-kmsfidante;
+                            NotificationCompat.Builder n1  = new NotificationCompat.Builder(this)
+                                    .setContentTitle("Hai vinto la sfida!")
+                                    .setContentText("Tu hai percorso "+diffKm+" km in più di "+sfidante)
+                                    .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                    .setAutoCancel(true)
+                                    .setSound(sound).
+                                            setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                            notificationManager.notify(0, n1.build());
+                        }
+                        else{
+                            Double diffKm = kmsfidante-kmsfidato;
+                            NotificationCompat.Builder n1  = new NotificationCompat.Builder(this)
+                                    .setContentTitle("Hai perso la sfida!")
+                                    .setContentText("Tu hai percorso "+diffKm+" km in meno di "+sfidante)
+                                    .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                    .setAutoCancel(true)
+                                    .setSound(sound).
+                                            setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                            notificationManager.notify(0, n1.build());
+                        }
+                    }
+                }
             }
         }
     }
