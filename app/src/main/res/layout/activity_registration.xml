@@ -16,7 +16,7 @@
         android:layout_marginTop="23dp"
         android:drawableTop="@drawable/ic_launcher_login"
         android:text="Social Bike Keeper"
-        android:textColor="@color/colorAccent"
+        android:textColor="#1E90FF"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
