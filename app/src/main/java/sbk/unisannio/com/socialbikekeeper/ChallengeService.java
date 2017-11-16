@@ -22,7 +22,7 @@ public class ChallengeService extends IntentService {
 
             Invia a = new Invia("http://socialbikeeper.altervista.org/getmychallenge.php?email=" + TrainingActivity.getEmail());
             String ris = a.doInBackground();
-
+            /*Il service controlla la tabella challenge e verifica se è presente una sfida per l'utente loggato*/
             if (!ris.contains("inesistente")) {
                 String sfida = ris.split("\\\n")[0];
 
@@ -34,7 +34,7 @@ public class ChallengeService extends IntentService {
                 int statosfida = Integer.parseInt(mysfida[4]);
                 int durata = Integer.parseInt(mysfida[3]);
 
-
+                /*Lo sfidato riceve la notifica di una nuova sfida*/
                 if (statosfida == 0) {
                     Intent pe = new Intent(this, NotificaActivity.class);
                     PendingIntent pi = PendingIntent.getActivity(this, 0, pe, 0);
@@ -55,6 +55,7 @@ public class ChallengeService extends IntentService {
                     }
 
                 }
+                /*Lo sfidante riceve la notifica che la sfida che ha lanciato è stata accettata*/
                 else if(statosfida==1){
                     if(TrainingActivity.getEmail().equals(sfidante)){
                         NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
@@ -71,6 +72,7 @@ public class ChallengeService extends IntentService {
                         rifiutaSfida.doInBackground();
                     }
                 }
+                /*Lo sfidante riceve la notifica che la sfida che ha lanciato è stata rifiutata*/
                 else if(statosfida==2){
                     if(TrainingActivity.getEmail().equals(sfidante)){
 
@@ -93,6 +95,7 @@ public class ChallengeService extends IntentService {
                         rifiutaSfida.doInBackground();
                     }
                 }
+                /*La sfida viene cancellata dalla tabella challange e dalla tabella challenge_result*/
                 else if(statosfida==3){
                     Invia cancella = new Invia("http://socialbikeeper.altervista.org/deletechallenge.php?id="+id);
                     cancella.doInBackground();
@@ -105,6 +108,8 @@ public class ChallengeService extends IntentService {
                     }
 
                 }
+                /*Con lo stato a 4 la sfida è completa e il service controlla i km percorsi da entrambi i ciclisti e li informa
+                * con una notifica del risultato della sfida*/
                 else if(statosfida==4){
                     Intent pe2=new Intent(this,TrainingActivity.class);
                     PendingIntent pi2=PendingIntent.getActivity(this, 0, pe2, 0);
@@ -116,7 +121,8 @@ public class ChallengeService extends IntentService {
                     Double kmsfidato = null;
 
                     kmsfidante = Double.parseDouble(km[0]);
-
+                    /*Il service controlla il campo dei km dello sfidato, se non ci sono significa che lo sfidato non ha
+                    * portato a termine la sfida*/
                     if(km[1].split("\\\n")[0].equals("_"))
                         kmsfidato=0.0;
                     else
@@ -184,6 +190,50 @@ public class ChallengeService extends IntentService {
                             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                             notificationManager.notify(0, n1.build());
                         }
+                    }
+                }
+                /*Lo stato può essere ugiale a 6 solo nel caso in cui lo sfidante non porta a termine la sfida.
+                * In questo caso lo sfidato viene informato di aver vinto la sfida a tavolino*/
+                else if(statosfida==6){
+//					Intent pe2=new Intent(this,TrainingActivity.class);
+//					PendingIntent pi2=PendingIntent.getActivity(this, 0, pe2, 0);
+                    if(TrainingActivity.getEmail().equals(sfidato)){
+                        NotificationCompat.Builder n1  = new NotificationCompat.Builder(this)
+                                .setContentTitle("Hai vinto la sfida a tavolino con")
+                                .setContentText(sfidante)
+                                .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setAutoCancel(true)
+//								.setContentIntent(pi2)
+                                .setSound(sound)
+                                .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        notificationManager.notify(0, n1.build());
+
+
+                        Invia setStato = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+3);
+                        setStato.doInBackground();
+//						Intent toTraining= new Intent(this,TrainingActivity.class).putExtra("email", sfidato);
+//						startActivity(toTraining);
+                    }
+                    else{
+                        NotificationCompat.Builder n1  = new NotificationCompat.Builder(this)
+                                .setContentTitle("Hai perso la sfida a tavolino con")
+                                .setContentText(sfidato)
+                                .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setAutoCancel(true)
+//								.setContentIntent(pi2)
+                                .setSound(sound)
+                                .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        notificationManager.notify(0, n1.build());
+
+
+                        Invia setStato = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+3);
+                        setStato.doInBackground();
+                        Intent toTraining= new Intent(this,TrainingActivity.class).putExtra("email", sfidante);
+                        startActivity(toTraining);
                     }
                 }
             }
