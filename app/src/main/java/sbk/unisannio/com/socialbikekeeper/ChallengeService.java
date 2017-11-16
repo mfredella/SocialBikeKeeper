@@ -93,6 +93,18 @@ public class ChallengeService extends IntentService {
                         rifiutaSfida.doInBackground();
                     }
                 }
+                else if(statosfida==3){
+                    Invia cancella = new Invia("http://socialbikeeper.altervista.org/deletechallenge.php?id="+id);
+                    cancella.doInBackground();
+                    Invia result =new Invia("http://socialbikeeper.altervista.org/getchallengeresult.php?sfidante="+sfidante+"&sfidato="+sfidato);
+                    String r=result.doInBackground();
+
+                    if(!r.contains("vuoto")){
+                        Invia cancellaris= new Invia("http://socialbikeeper.altervista.org/deletechallengeresult.php?sfidante="+sfidante+"&sfidato="+sfidato);
+                        cancellaris.doInBackground();
+                    }
+
+                }
             }
         }
     }
