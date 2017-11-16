@@ -8,6 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:background="@color/Grigio"
     tools:context="sbk.unisannio.com.socialbikekeeper.TrainingActivity" >
 
     <LinearLayout
@@ -17,28 +18,34 @@
         android:layout_alignParentRight="true"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:background="@color/Grigio"
         android:padding="10dp" >
 
         <TextView
             android:id="@+id/calorie_value"
             android:layout_width="130dp"
             android:layout_height="40dp"
+            android:background="@color/Grigio"
             android:gravity="center_horizontal|center_vertical"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="@color/White"/>
 
         <TextView
             android:id="@+id/tvCalorie"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@color/Grigio"
             android:gravity="center_horizontal"
             android:paddingBottom="10dp"
-            android:text="Calorie" />
+            android:text="Calorie"
+            android:textColor="@color/White"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/box_KM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/Grigio"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="10dp" >
@@ -47,16 +54,20 @@
             android:id="@+id/KM_value"
             android:layout_width="130dp"
             android:layout_height="40dp"
+            android:background="@color/Grigio"
             android:gravity="center_horizontal|center_vertical"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="@color/White"/>
 
         <TextView
             android:id="@+id/tvKM"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@color/Grigio"
             android:gravity="center_horizontal"
             android:paddingBottom="10dp"
-            android:text="Chilometri" />
+            android:text="Chilometri"
+            android:textColor="@color/White"/>
     </LinearLayout>
 
     <LinearLayout
@@ -83,33 +94,35 @@
         android:layout_below="@+id/box_Calorie"
         android:layout_centerHorizontal="true"
         android:text="00:00:00"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/White"
         android:textSize="40sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/pause_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/start_button"
         android:layout_centerHorizontal="true"
-        android:text="Pausa" />
+        android:src="@drawable/pause_button"
+        android:background="@null"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/stop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout1"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="18dp"
-        android:text="Stop" />
+        android:layout_alignTop="@+id/pause_button"
+        android:layout_toRightOf="@+id/timerValue"
+        android:src="@drawable/stop_button"
+        android:background="@null"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout1"
-        android:layout_marginEnd="20dp"
-        android:layout_toStartOf="@+id/pause_button"
-        android:text="Start" />
+        android:layout_below="@+id/timerValue"
+        android:layout_marginTop="35dp"
+        android:layout_toLeftOf="@+id/timerValue"
+        android:src="@drawable/start_button"
+        android:background="@null"/>
 
 </RelativeLayout>

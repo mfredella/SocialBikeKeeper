@@ -18,7 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +58,7 @@ public class TrainingActivity extends AppCompatActivity implements
     private String latitudine;
     private String longitudine;
 
-    Button start, stop,pause;
+    ImageButton start, stop,pause;
 
     /*variabili relative al calcolo di calorie bruciate e chilometri percorsi*/
     TextView KM_value, calorie_value, timerValue;
@@ -313,7 +313,7 @@ public class TrainingActivity extends AppCompatActivity implements
         Intent toService = new Intent(this, ChallengeService.class);
         startService(toService);
 
-        start = (Button) findViewById(R.id.start_button);
+        start = (ImageButton) findViewById(R.id.start_button);
 
         start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -332,7 +332,7 @@ public class TrainingActivity extends AppCompatActivity implements
             }
         });
 
-        pause = (Button) findViewById(R.id.pause_button);
+        pause = (ImageButton) findViewById(R.id.pause_button);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 pausa = false;
@@ -341,7 +341,7 @@ public class TrainingActivity extends AppCompatActivity implements
             }
         });
 
-        stop = (Button) findViewById(R.id.stop_button);
+        stop = (ImageButton) findViewById(R.id.stop_button);
         stop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 stopTimerThread();

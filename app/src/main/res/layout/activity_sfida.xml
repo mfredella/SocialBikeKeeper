@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingBottom="16dp"
-android:paddingLeft="16dp"
-android:paddingRight="16dp"
-android:paddingTop="16dp"
-tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="@color/Grigio"
+    tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
 
 <LinearLayout
     android:id="@+id/box_Calorie"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
+    android:background="@color/Grigio"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp" >
@@ -23,24 +25,27 @@ tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
         android:id="@+id/calorie_value"
         android:layout_width="130dp"
         android:layout_height="40dp"
+        android:background="@color/Grigio"
         android:gravity="center_horizontal|center_vertical"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/White"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/calorie_units"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/Grigio"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:text="Calorie"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/White" />
 </LinearLayout>
 
 <LinearLayout
     android:id="@+id/box_KM"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/Grigio"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp" >
@@ -49,18 +54,20 @@ tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
         android:id="@+id/KM_value"
         android:layout_width="130dp"
         android:layout_height="40dp"
+        android:background="@color/Grigio"
         android:gravity="center_horizontal|center_vertical"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/White"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/KM_units"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/Grigio"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:text="Chilometri"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/White" />
 </LinearLayout>
 
 <LinearLayout
@@ -87,7 +94,7 @@ tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
     android:layout_below="@+id/box_Calorie"
     android:layout_centerHorizontal="true"
     android:text="00:00:00"
-    android:textColor="@color/colorPrimary"
+    android:textColor="@color/White"
     android:textSize="40sp" />
 
 <TextView
@@ -98,7 +105,7 @@ tools:context="sbk.unisannio.com.socialbikekeeper.SfidaActivity">
     android:layout_centerHorizontal="true"
     android:layout_marginBottom="34dp"
     android:text=""
-    android:textColor="@color/colorPrimary"
+    android:textColor="@color/White"
     android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
