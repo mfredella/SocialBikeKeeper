@@ -4,83 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Grigio"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     tools:context="sbk.unisannio.com.socialbikekeeper.MainActivity">
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="54dp"
+        android:drawableTop="@drawable/ic_launcher_login"
         android:text="Social Bike Keeper"
-
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="45dp"
-        android:layout_toLeftOf="@+id/textView1"
-        android:focusable="true"
-        android:text="Email" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="57dp"
-        android:text="Password"
-        />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView3"
-        android:ems="10"
-        android:inputType="textPassword" >
-
-
-    </EditText>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#1E90FF" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/textView1"
+        android:layout_alignStart="@+id/TextView01"
+        android:hint="Email"
+        android:background="@color/Grigio"
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"
         android:ems="10">
 
         <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:layout_alignLeft="@+id/etEmail"
+        android:layout_marginTop="57dp"
+        android:background="@color/Grigio"
+        android:ems="10"
+        android:hint="Password"
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"
+        android:inputType="textPassword" >
     </EditText>
 
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etPassword"
+        android:layout_alignRight="@+id/etPassword"
         android:layout_below="@+id/etPassword"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
-        android:text="Login" />
+        android:background="@color/Grigio_Chiaro"
+        android:text="Login"
+        android:textColor="@color/White" />
 
     <Button
         android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etPassword"
+        android:layout_alignRight="@+id/etPassword"
         android:layout_below="@+id/TextView01"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="Registrati" />
+        android:layout_marginTop="16dp"
+        android:background="@color/Grigio_Chiaro"
+        android:text="Registrati"
+        android:textColor="@color/White" />
 
     <TextView
         android:id="@+id/TextView01"
@@ -88,8 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="29dp"
         android:text="Sei un nuovo utente?"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#1E90FF" />
 
 </RelativeLayout>

@@ -360,6 +360,8 @@ public class TrainingActivity extends AppCompatActivity implements
                         .putExtra("km",String.valueOf(df.format(Km_percorsi)))
                         .putExtra("tempo",String.valueOf(timeInMilliseconds/1000));
                 startActivity(toRisultatiActivity);
+                calorie_value.setVisibility(View.INVISIBLE);
+                KM_value.setVisibility(View.INVISIBLE);
             }
         });
     }
