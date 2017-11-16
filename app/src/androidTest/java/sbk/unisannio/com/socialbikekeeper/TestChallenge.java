@@ -48,7 +48,7 @@ public class TestChallenge extends ActivityInstrumentationTestCase2<MainActivity
     }
     /*Testa il caso in cui la sfida viene accetata*/
     @Test
-    public void testSfidaAccetata() throws InterruptedException{
+    public void testSfida1() throws InterruptedException{
 
         Thread.sleep(1000);
         String email="sara@gmail.com";
@@ -84,8 +84,15 @@ public class TestChallenge extends ActivityInstrumentationTestCase2<MainActivity
         onView(withText("Si")).perform(click());
         Thread.sleep(2000);
 
-        onView(withText("Sfida accettata, activity da implementare")).inRoot(withDecorView(not(is(getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
-        mActivity.finish();
+        Activity activitySfida = getActivityInstance();
+        boolean boo = (activitySfida instanceof  SfidaActivity);
+        assertTrue(boo);
+
+        onView(withId(R.id.timerValue)).check(matches(isDisplayed()));
+        onView(withId(R.id.KM_value)).check(matches(isDisplayed()));
+        onView(withId(R.id.calorie_value)).check(matches(isDisplayed()));
+        Thread.sleep(1000);
+
     }
 
 
@@ -93,16 +100,16 @@ public class TestChallenge extends ActivityInstrumentationTestCase2<MainActivity
     se è cliccabile, se mostra l'alert dialog per accetare o meno la sfida
      * e se la sfida viene rifiuata */
     @Test
-    public void testSfidaRifiutata() throws InterruptedException{
+    public void testSfida0() throws InterruptedException{
 
         Thread.sleep(1000);
-        String email="mariannafucci@gmail.com";
-        String password="rafanadal";
+        String email2="mariannafucci@gmail.com";
+        String password2="rafanadal";
         Thread.sleep(1000);
-        onView(withId(R.id.etEmail)).perform(typeText(email));
+        onView(withId(R.id.etEmail)).perform(typeText(email2));
         closeSoftKeyboard();
         Thread.sleep(1000);
-        onView(withId(R.id.etPassword)).perform(typeText(password));
+        onView(withId(R.id.etPassword)).perform(typeText(password2));
         closeSoftKeyboard();
         Thread.sleep(2000);
 

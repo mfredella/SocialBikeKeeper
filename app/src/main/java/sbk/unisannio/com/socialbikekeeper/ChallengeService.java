@@ -193,6 +193,18 @@ public class ChallengeService extends IntentService {
                             notificationManager.notify(0, n1.build());
                         }
                     }
+                    else if(kmsfidante==kmsfidato){
+                        NotificationCompat.Builder n1  = new NotificationCompat.Builder(this)
+                                .setContentTitle("La sfida è finita in pareggio!")
+                                .setContentText("Avete percorso lo stesso numero di chilometri: "+kmsfidante)
+                                .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setAutoCancel(true)
+                                .setSound(sound).
+                                        setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+
+                        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        notificationManager.notify(0, n1.build());
+                    }
                 }
                 /*Lo stato può essere ugiale a 6 solo nel caso in cui lo sfidante non porta a termine la sfida.
                 * In questo caso lo sfidato viene informato di aver vinto la sfida a tavolino*/
