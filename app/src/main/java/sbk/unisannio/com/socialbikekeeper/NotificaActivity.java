@@ -37,7 +37,8 @@ public class NotificaActivity extends AppCompatActivity implements DialogInterfa
                 String idr=sfidar.doInBackground();
                 idr=idr.split("\\\n")[0];
                 Sfida.setId(idr);
-                Toast.makeText(getApplicationContext(), "Sfida accettata, activity da implementare", Toast.LENGTH_LONG).show();
+                Intent toStart=new Intent(this, SfidaActivity.class);
+                startActivity(toStart);
                 break;
             case -2:
 
