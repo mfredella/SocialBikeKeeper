@@ -12,6 +12,7 @@ import android.os.StrictMode;
 import android.os.Bundle;
 
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity implements OnClickListener, DialogInterface.OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener, DialogInterface.OnClickListener {
     private EditText email, password;
     private Button login, registration;
 
