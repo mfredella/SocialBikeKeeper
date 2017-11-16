@@ -57,11 +57,14 @@ public class ChallengeService extends IntentService {
                 }
                 /*Lo sfidante riceve la notifica che la sfida che ha lanciato è stata accettata*/
                 else if(statosfida==1){
+                    Intent toStart= new Intent(this, SfidaActivity.class);
+                    PendingIntent toStartPi= PendingIntent.getActivity(this,0, toStart,0);
                     if(TrainingActivity.getEmail().equals(sfidante)){
                         NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
                                 .setContentTitle("La tua sfida è stata accettata da")
                                 .setContentText(sfidato)
                                 .setSmallIcon(android.R.drawable.ic_dialog_email)
+                                .setContentIntent(toStartPi)
                                 .setAutoCancel(true)
                                 .setSound(sound)
                                 .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
@@ -75,7 +78,6 @@ public class ChallengeService extends IntentService {
                 /*Lo sfidante riceve la notifica che la sfida che ha lanciato è stata rifiutata*/
                 else if(statosfida==2){
                     if(TrainingActivity.getEmail().equals(sfidante)){
-
                         NotificationCompat.Builder n  = new NotificationCompat.Builder(this)
                                 .setContentTitle("La tua sfida non è stata accettata da")
                                 .setContentText(sfidato)
