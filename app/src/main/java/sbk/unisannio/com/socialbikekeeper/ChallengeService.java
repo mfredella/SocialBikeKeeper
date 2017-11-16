@@ -238,6 +238,16 @@ public class ChallengeService extends IntentService {
                         startActivity(toTraining);
                     }
                 }
+                try {
+                    Thread.sleep(30000);
+                }
+                catch (InterruptedException e) { }
+            }
+            else{
+                try {
+                    Thread.sleep(30000);
+                }
+                catch (InterruptedException e) { }
             }
         }
     }

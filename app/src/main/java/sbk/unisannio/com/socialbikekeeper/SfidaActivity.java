@@ -212,8 +212,6 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
         STARTING_POINT=new LatLng(startingPoint.getLatitude(), startingPoint.getLongitude());
         latitudine= ""+startingPoint.getLatitude();
         longitudine=""+startingPoint.getLongitude();
-        Toast.makeText(getApplicationContext(),"SfidaActivity onConnected: "+latitudine+" "+longitudine,Toast.LENGTH_LONG).show();
-
     }
 
     @Override
