@@ -101,8 +101,7 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
                 * Appena il cronometro va a zero:
                 *   la textview diventa visibile
                 *   cambia lo stato della sfida nella rispettiva tabella del database
-                * */
-
+                */
                 timerValue.setText("Sfida completata!");
 
                 KM_value.setVisibility(View.INVISIBLE);
@@ -247,7 +246,6 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
             mCurrLocationMarker.remove();
         }
 
-        //Place current location marker
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
@@ -339,15 +337,10 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
                     }
 
                 } else {
-
-                    // Permission denied, Disable the functionality that depends on this permission.
                     Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show();
                 }
                 return;
             }
-
-            // other 'case' lines to check for other permissions this app might request.
-            // You can add here other case statements according to your requirement.
         }
     }
 
@@ -358,5 +351,47 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
 
         Intent toService = new Intent(this, ChallengeService.class);
         startService(toService);
+    }
+
+    public void onStop() {
+        super.onStop();
+        Invia mc =new Invia("http://socialbikeeper.altervista.org/getmychallenge.php?email="+TrainingActivity.getEmail());
+        String ris=mc.doInBackground();
+        /*
+        * Se non ci sono sfide per l'utente loggato
+        *   l'utente torna a Training
+        * altrimenti
+        *      se lo stato della sfida è diverso da 4 e da 3,
+        *           setta lo stato a 6(lo sfidante non completa)
+        *      altrimenti
+        *           torna a Training con passandogli l'email dell'utente sfidato
+        *
+        * */
+        if(!ris.contains("inesistente")){
+            String sfida=ris.split("\\\n")[0];
+            String []mysfida= sfida.split("\\*");
+            sfidante=mysfida[1];
+            sfidato=mysfida[2];
+            statosfida=Integer.parseInt(mysfida[4]);
+            if(TrainingActivity.getEmail().equals(sfidante)){
+                if(statosfida!=4 && statosfida!=3){
+                    Invia sfidafinita = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+sfidante+"&sfidato="+sfidato+"&stato="+6);
+                    sfidafinita.doInBackground();
+                    Intent toTraining= new Intent(getApplicationContext(),TrainingActivity.class);
+                    toTraining.putExtra("email", sfidante);
+                    startActivity(toTraining);
+                }
+            }
+            else{
+                Intent toTraining= new Intent(getApplicationContext(),TrainingActivity.class);
+                toTraining.putExtra("email", sfidato);
+                startActivity(toTraining);
+            }
+        }
+        else {
+            Intent toTraining= new Intent(getApplicationContext(),TrainingActivity.class);
+            toTraining.putExtra("email", TrainingActivity.getEmail());
+            startActivity(toTraining);
+        }
     }
 }
