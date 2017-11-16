@@ -23,15 +23,16 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nome"
+        android:layout_alignStart="@+id/nome"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="35dp"
         android:background="@color/Grigio"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="@color/White"
-        android:hint="Email"
         android:textColorHint="@color/White">
+
         <requestFocus />
     </EditText>
 
@@ -84,7 +85,7 @@
         android:layout_alignLeft="@+id/password"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/password"
-        android:layout_marginTop="33dp"
+        android:layout_marginBottom="40dp"
         android:text="Registrati"
         android:textColor="@color/White"
         android:background="@color/Grigio_Chiaro"/>
