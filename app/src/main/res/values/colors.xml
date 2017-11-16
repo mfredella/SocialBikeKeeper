@@ -2,5 +2,13 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#00C1C2</color>
+    <color name="display_background">#000</color>
+    <color name="MidnightBlue">#151B54</color>
+    <color name="Black">#000000</color>
+    <color name="Red">#FF0000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Verde">#7FFF00</color>
+    <color name="Grigio">#2F2F2F</color>
+    <color name="Grigio_Chiaro">#4F4F4F</color>
 </resources>
