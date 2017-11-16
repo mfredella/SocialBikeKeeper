@@ -114,14 +114,23 @@ public class LanciaSfidaActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(DialogInterface arg0, int arg1) {
+        Invia lanciaSfida=null;
         switch(arg1){
             case -1:
                 durataSfida = ""+60;
                 Toast.makeText(getApplicationContext(), "Sfida di "+durataSfida+" minuti lanciata", Toast.LENGTH_LONG).show();
+
+                lanciaSfida=new Invia("http://socialbikeeper.altervista.org/challenge.php?sfidante="+emailSfidante+"&sfidato="+emailSfidato+"&durata="+durataSfida+"&stato="+0);
+                String id=lanciaSfida.doInBackground();
+                Sfida sfida = new Sfida(emailSfidante, emailSfidato, id);
                 break;
             case -2:
                 durataSfida = ""+90;
                 Toast.makeText(getApplicationContext(), "Sfida di "+durataSfida+" minuti lanciata", Toast.LENGTH_LONG).show();
+
+                lanciaSfida=new Invia("http://socialbikeeper.altervista.org/challenge.php?sfidante="+emailSfidante+"&sfidato="+emailSfidato+"&durata="+durataSfida+"&stato="+0);
+                String id1=lanciaSfida.doInBackground();
+                Sfida sfida1 = new Sfida(emailSfidante, emailSfidato, id1);
                 break;
         }
     }
