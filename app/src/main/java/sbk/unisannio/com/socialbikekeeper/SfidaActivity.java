@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +66,9 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
 
     double latitude;
     double longitude;
+    String sfidante, sfidato;
+    int statosfida;
+    int durata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +102,47 @@ public class SfidaActivity extends AppCompatActivity implements OnMapReadyCallba
                 *   la textview diventa visibile
                 *   cambia lo stato della sfida nella rispettiva tabella del database
                 * */
+
+                timerValue.setText("Sfida completata!");
+
+                KM_value.setVisibility(View.INVISIBLE);
+                calorie_value.setVisibility(View.INVISIBLE);
+                Invia aa =new Invia("http://socialbikeeper.altervista.org/getmychallenge.php?email="+TrainingActivity.getEmail());
+                String ris=aa.doInBackground();
+                if(!ris.contains("inesistente")){
+                    String sfida=ris.split("\\\n")[0];
+                    String []mysfida= sfida.split("\\*");
+                    sfidante=mysfida[1];
+                    sfidato=mysfida[2];
+                    statosfida=Integer.parseInt(mysfida[4]);
+                    durata= Integer.parseInt(mysfida[3]);
+
+                    if(String.valueOf(kcal).equals("NaN"))
+                        kcal=0.000000;
+
+                    if(statosfida==5){
+                        if((TrainingActivity.getEmail()).equals(sfidante)){
+
+                            Invia cr = new Invia("http://socialbikeeper.altervista.org/updatechallengeresult.php?sfidante="+sfidante+"&sfidato="+sfidato+"&km="+String.valueOf(Km_percorsi)+"&flag=0");
+                            cr.doInBackground();
+                            Invia sfidafinita = new Invia("http://socialbikeeper.altervista.org/dochallenge.php?sfidante="+Sfida.getSfidante()+"&sfidato="+Sfida.getSfidato()+"&stato="+4);
+                            sfidafinita.doInBackground();
+                        }
+                        else {
+
+                            Invia cr = new Invia("http://socialbikeeper.altervista.org/updatechallengeresult.php?sfidante="+sfidante+"&sfidato="+sfidato+"&km="+String.valueOf(Km_percorsi)+"&flag=1");
+                            cr.doInBackground();
+                        }
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Attendi il risultato...", Toast.LENGTH_LONG).show();
+                        Intent toTraining = new Intent(getApplicationContext(), TrainingActivity.class);
+                        startActivity(toTraining);
+                    }
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Il tuo sfidante si è ritirato!", Toast.LENGTH_LONG).show();
+                }
             }
         }.start();
     }
