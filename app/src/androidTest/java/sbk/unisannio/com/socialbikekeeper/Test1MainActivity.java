@@ -27,12 +27,12 @@ import static android.support.test.espresso.Espresso.onView;
  * Created by michele on 02/11/2017.
  */
 
-public class TestMainActivity extends ActivityInstrumentationTestCase2<MainActivity> {
+public class Test1MainActivity extends ActivityInstrumentationTestCase2<MainActivity> {
     private MainActivity mActivity;
     private Button login;
 //    private Button registrati;
 
-    public TestMainActivity() {
+    public Test1MainActivity() {
 
         super(MainActivity.class);
     }
@@ -45,17 +45,17 @@ public class TestMainActivity extends ActivityInstrumentationTestCase2<MainActiv
 
     }
 
-    @Test
-    public void testAlertDialogNoConnection() throws InterruptedException {
-        onView(withText("Abilita la connessione")).check(matches(isDisplayed()));
-        Thread.sleep(3000);
-    }
-
-    @Test
-    public void testAlertDialogNoGps() throws InterruptedException {
-        onView(withText("Consenti l'accesso al GPS?")).check(matches(isDisplayed()));
-        Thread.sleep(3000);
-    }
+//    @Test
+//    public void testAlertDialogNoConnection() throws InterruptedException {
+//        onView(withText("Abilita la connessione")).check(matches(isDisplayed()));
+//        Thread.sleep(3000);
+//    }
+//
+//    @Test
+//    public void testAlertDialogNoGps() throws InterruptedException {
+//        onView(withText("Consenti l'accesso al GPS?")).check(matches(isDisplayed()));
+//        Thread.sleep(3000);
+//    }
 
     @Test
     public void testLogin() throws InterruptedException{

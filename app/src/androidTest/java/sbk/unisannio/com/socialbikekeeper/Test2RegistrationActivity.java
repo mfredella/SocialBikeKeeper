@@ -19,12 +19,12 @@ import static org.hamcrest.Matchers.not;
  * Created by michele on 02/11/2017.
  */
 
-public class TestRegistrationActivity extends ActivityInstrumentationTestCase2<RegistrationActivity> {
+public class Test2RegistrationActivity extends ActivityInstrumentationTestCase2<RegistrationActivity> {
     private RegistrationActivity rActivity;
     private Button registrati;
     private EditText email, nome, cognome, password;
 
-    public TestRegistrationActivity() {
+    public Test2RegistrationActivity() {
         super(RegistrationActivity.class);
     }
     @Override

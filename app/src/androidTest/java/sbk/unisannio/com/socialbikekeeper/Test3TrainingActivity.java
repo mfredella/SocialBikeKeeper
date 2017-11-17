@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -26,12 +25,12 @@ import static org.hamcrest.Matchers.not;
  * Created by carusosara on 07/11/2017.
  */
 
-public class TestTrainingActivity extends ActivityInstrumentationTestCase2<TrainingActivity> {
+public class Test3TrainingActivity extends ActivityInstrumentationTestCase2<TrainingActivity> {
     private TrainingActivity tActivity;
     private TextView KM_value, cal_value, timer_value;
-    private Button start_button, stop_button;
+    private ImageButton start_button, stop_button;
 
-    public TestTrainingActivity() {
+    public Test3TrainingActivity() {
         super(TrainingActivity.class);
     }
 
@@ -56,7 +55,7 @@ public class TestTrainingActivity extends ActivityInstrumentationTestCase2<Train
 
     @Test
     public void testExceptionStop() throws InterruptedException {
-        stop_button= (Button)tActivity.findViewById(R.id.stop_button);
+        stop_button= (ImageButton)tActivity.findViewById(R.id.stop_button);
         tActivity.runOnUiThread(new Runnable() {
 
             @Override
@@ -81,7 +80,7 @@ public class TestTrainingActivity extends ActivityInstrumentationTestCase2<Train
         assertEquals(KM_value.getVisibility(), View.INVISIBLE);
         assertEquals(cal_value.getVisibility(), View.INVISIBLE);
 
-        start_button= (Button)tActivity.findViewById(R.id.start_button);
+        start_button= (ImageButton)tActivity.findViewById(R.id.start_button);
         tActivity.runOnUiThread(new Runnable() {
 
             @Override
@@ -94,7 +93,7 @@ public class TestTrainingActivity extends ActivityInstrumentationTestCase2<Train
         assertEquals(KM_value.getVisibility(), View.VISIBLE);
         assertEquals(cal_value.getVisibility(), View.VISIBLE);
 
-        stop_button= (Button)tActivity.findViewById(R.id.stop_button);
+        stop_button= (ImageButton)tActivity.findViewById(R.id.stop_button);
         tActivity.runOnUiThread(new Runnable() {
 
             @Override

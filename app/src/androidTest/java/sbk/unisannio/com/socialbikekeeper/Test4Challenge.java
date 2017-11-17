@@ -31,11 +31,11 @@ import static org.hamcrest.Matchers.not;
  * Created by Marianna on 14/11/2017.
  */
 
-public class TestChallenge extends ActivityInstrumentationTestCase2<MainActivity> {
+public class Test4Challenge extends ActivityInstrumentationTestCase2<MainActivity> {
 
     private MainActivity mActivity;
 
-    public TestChallenge() {
+    public Test4Challenge() {
         super(MainActivity.class);
     }
 
@@ -62,7 +62,7 @@ public class TestChallenge extends ActivityInstrumentationTestCase2<MainActivity
         Thread.sleep(2000);
 
         onView(withId(R.id.login)).perform(click());
-        Thread.sleep(3000);
+        Thread.sleep(8000);
 
         UiDevice mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         mDevice.openNotification();
