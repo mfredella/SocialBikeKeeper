@@ -761,6 +761,15 @@ height="6.0605030621172356in"}
 ![](media/image13.png){width="6.660753499562555in"
 height="4.885416666666667in"}
 
+### 4.2.3 Class Diagram {#class-diagram .Marianna3}
+
+![](media/image14.png){width="6.68in" height="7.371729002624672in"}
+
+### 4.2.4 Deployment Diagram {#deployment-diagram .Marianna3}
+
+![](media/image15.png){width="6.72799978127734in"
+height="3.7917191601049867in"}
+
 5 Testing {#testing .Marianna1}
 =========
 
