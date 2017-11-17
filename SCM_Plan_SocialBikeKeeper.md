@@ -283,6 +283,7 @@ Data di completamento: 14/11/2017
 
 **Sprint 5.** Come sistema, si vuole introdurre una nuova funzionalità:
 il ciclista può portare a termine una sfida e riceverne il risultato.
+Inoltre si vogliono apportare migliorie grafiche.
 
 Data di completamento: 17/11/2017
 
