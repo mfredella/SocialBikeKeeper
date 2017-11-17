@@ -64,7 +64,7 @@ public class Test3TrainingActivity extends ActivityInstrumentationTestCase2<Trai
             }
         });
         Thread.sleep(2000);
-        onView(withText("Devi premere Start per iniziare l'allenamento!")).inRoot(withDecorView(not(is(getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
+        onView(withText("Devi premere start per iniziare l'allenamento!")).inRoot(withDecorView(not(getActivity().getWindow().getDecorView()))).check(matches(isDisplayed()));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class Test3TrainingActivity extends ActivityInstrumentationTestCase2<Trai
                 start_button.performClick();
             }
         });
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
         assertEquals(KM_value.getVisibility(), View.VISIBLE);
         assertEquals(cal_value.getVisibility(), View.VISIBLE);
