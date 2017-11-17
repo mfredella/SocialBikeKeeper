@@ -1,4 +1,10 @@
+![](media/image1.png){width="2.749656605424322in"
+height="1.3956583552055992in"}
+
 **Social Bike Keeper**
+
+![](media/image2.png){width="2.395138888888889in"
+height="2.1046511373578305in"}
 
 Ingegneria del Software
 
@@ -124,17 +130,16 @@ e alla definizione e aggiornamento dello storico degli allenamenti.
 Avviata l'applicazione, l'utente già registrato potrà effettuare il
 login, altrimenti potrà procedere alla registrazione.
 
-[]{#_Toc498684052
-.anchor}![](media/image1.png){width="1.7627001312335957in"
-height="3.1338582677165356in"}**Registrazione**: l'interfaccia consente
-l'inserimento di informazione personali: nome, cognome, email e
-password. Dopo aver confermato i dati, comparirà un messaggio di
-avvenuta registrazione.
+![](media/image3.png){width="1.7627001312335957in"
+height="3.1338582677165356in"}[]{#_Toc498697175
+.anchor}**Registrazione**: l'interfaccia consente l'inserimento di
+informazione personali: nome, cognome, email e password. Dopo aver
+confermato i dati, comparirà un messaggio di avvenuta registrazione.
 
-![](media/image2.png){width="1.7624715660542432in"
+![](media/image4.png){width="1.7624715660542432in"
 height="3.1338582677165356in"}
 
-[]{#_Toc498684053 .anchor}**Login**: l'interfaccia consente
+[]{#_Toc498697176 .anchor}**Login**: l'interfaccia consente
 l'inserimento di email e password. Se le credenziali sono errate
 comparirà il messaggio "Login Errato", altrimenti l'utente potrà
 accedere alle funzionalità previste dall'applicazione.
@@ -147,8 +152,8 @@ accedere alle funzionalità previste dall'applicazione.
 
 ###  {#section-3 .Marianna3}
 
-[]{#_Toc498684054
-.anchor}![](media/image3.png){width="1.7618055555555556in"
+[]{#_Toc498697177
+.anchor}![](media/image5.png){width="1.7618055555555556in"
 height="3.1319444444444446in"}Sessione d'allenamento
 
 L'interfaccia consente:
@@ -166,32 +171,31 @@ L'interfaccia consente:
 -   di visualizzare in real time i chilometri percorsi e le calorie
     bruciate
 
-![](media/image4.png){width="1.7598425196850394in"
-height="3.1288440507436572in"}
+![](media/image6.png){width="1.7597222222222222in"
+height="3.1284722222222223in"}
 
-[]{#_Toc498684055 .anchor}Registrazione risultati allenamento
+[]{#_Toc498697178 .anchor}Registrazione risultati allenamento
 
 L'interfaccia consente la visualizzazione dei risultati dell'allenamento
 appena terminato.
 
-[]{#_Toc498684056
-.anchor}![](media/image5.png){width="1.7597222222222222in"
+[]{#_Toc498697179
+.anchor}![](media/image7.png){width="1.7597222222222222in"
 height="3.1284722222222223in"}Visualizzazione storico allenamenti
 
 L'interfaccia consente la visualizzazione dei risultati di tutti gli
 allenamenti terminati dall'utente.
 
-[]{#_Toc498684057
-.anchor}![](media/image6.png){width="1.7597222222222222in"
+[]{#_Toc498697180
+.anchor}![](media/image8.png){width="1.7597222222222222in"
 height="3.1277777777777778in"}Ricerca ciclisti da sfidare
 
 L'interfaccia mostra una mappa con i marker dei ciclisti loggati in quel
 momento e dà la possibilità di lanciare una sfida al ciclista scelto
 selezionando il marker corrispondente.
 
-[]{#_Toc498684058 .anchor}
-
-![](media/image7.png){width="1.7631944444444445in"
+[]{#_Toc498697181
+.anchor}![](media/image9.png){width="1.7631944444444445in"
 height="3.1354166666666665in"}La sfida
 
 L'interfaccia consente di visualizzare un countdown della durata scelta
@@ -730,47 +734,47 @@ Social Bike Keeper si interfaccia con:
 
 ### 4.2.1 Sequence Diagram {#sequence-diagram .Marianna3}
 
-[]{#_Toc498684066 .anchor}Accesso al sistema
+[]{#_Toc498697189 .anchor}Accesso al sistema
 
-![](media/image8.png){width="5.823999343832021in"
+![](media/image10.png){width="5.823999343832021in"
 height="3.821330927384077in"}
 
-[]{#_Toc498684067 .anchor}Registrazione
+[]{#_Toc498697190 .anchor}Registrazione
 
-![](media/image9.png){width="4.855555555555555in"
+![](media/image11.png){width="4.855555555555555in"
 height="3.231999125109361in"}
 
-[]{#_Toc498684068 .anchor}Acquisizione geoposizione
+[]{#_Toc498697191 .anchor}Acquisizione geoposizione
 
-![](media/image10.png){width="4.967361111111111in"
+![](media/image12.png){width="4.967361111111111in"
 height="2.191999125109361in"}
 
-[]{#_Toc498684069 .anchor}Sessione d'allenamento
+[]{#_Toc498697192 .anchor}Sessione d'allenamento
 
-![](media/image11.png){width="4.3277777777777775in"
+![](media/image13.png){width="4.3277777777777775in"
 height="2.935999562554681in"}
 
-[]{#_Toc498684070 .anchor}La sfida -- lato sfidante
+[]{#_Toc498697193 .anchor}La sfida -- lato sfidante
 
-![](media/image12.png){width="6.34375in" height="7.193359580052493in"}
+![](media/image14.png){width="6.34375in" height="7.193359580052493in"}
 
-[]{#_Toc498684071 .anchor}La sfida -- lato sfidato
+[]{#_Toc498697194 .anchor}La sfida -- lato sfidato
 
-![](media/image13.png){width="6.010416666666667in"
+![](media/image15.png){width="6.010416666666667in"
 height="6.0605030621172356in"}
 
 ### 4.2.2 StateMachine Diagram {#statemachine-diagram .Marianna3}
 
-![](media/image14.png){width="6.660753499562555in"
+![](media/image16.png){width="6.660753499562555in"
 height="4.885416666666667in"}
 
 ### 4.2.3 Class Diagram {#class-diagram .Marianna3}
 
-![](media/image15.png){width="6.68in" height="7.371729002624672in"}
+![](media/image17.png){width="6.68in" height="7.371729002624672in"}
 
 ### 4.2.4 Deployment Diagram {#deployment-diagram .Marianna3}
 
-![](media/image16.png){width="6.72799978127734in"
+![](media/image18.png){width="6.72799978127734in"
 height="3.7917191601049867in"}
 
 5 Testing {#testing .Marianna1}
@@ -784,7 +788,7 @@ caso di Test e simulando il comportamento dell'applicazione in risposta
 agli input dell'utente tramite apposite librerie quali: Espresso,
 UiAnimator e ActivityInstrumentationTestCase2.
 
-  []{#_Toc498684077 .anchor}Registrazione                                                                                                                                                   
+  []{#_Toc498697200 .anchor}Registrazione                                                                                                                                                   
   ----------------------------------------- ---------------------------------- -------------------------------- ------------- -------------- ----------------- ---------------------------- ----------------------------
   **Choice**                                **Categories**                     **Enviroment characteristics**                                                                               
                                             **Email**                          **Nome**                         **Cognome**   **Password**   **GPS/Network**   **Valore atteso**            **Output**
@@ -793,7 +797,7 @@ UiAnimator e ActivityInstrumentationTestCase2.
   \#3                                       "null@null"                        "null"                           "null"        "null"         Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
   \#4                                       "jim"                              ""                               ""            ""             Attivo/Attivo     "Dati inseriti non validi"   "Dati inseriti non validi"
 
-  []{#_Toc498684078 .anchor}Accesso al sistema                                                                                                                     
+  []{#_Toc498697201 .anchor}Accesso al sistema                                                                                                                     
   ---------------------------------------------- ---------------------------------- -------------------------------- ----------------- --------------------------- ---------------------------
   **Choice**                                     **Categories**                     **Enviroment characteristics**                                                 
                                                  Email                              Password                         **GPS/Network**   Valore atteso               Output
@@ -802,7 +806,7 @@ UiAnimator e ActivityInstrumentationTestCase2.
   \#3                                            "[<sara@gmail.com>"]{.underline}   "aras"                           Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
   \#4                                            "[<aras@gmail.com>"]{.underline}   "sara"                           Attivo/Attivo     "ATTENZIONE login errato"   "ATTENZIONE login errato"
 
-  []{#_Toc498684079 .anchor}Sessione d'allenamento                                                                                                                                                     
+  []{#_Toc498697202 .anchor}Sessione d'allenamento                                                                                                                                                     
   -------------------------------------------------- ----------------------- -------------------------------- ----------------- ---------------------------------------------------------------------- ----------------------------------------------------------------------
   **Choice**                                         **Categories**          **Enviroment characteristics**                                                                                            
                                                      **Operazione \#1**      **Operazione \#2**               **GPS/Network**   **Valore atteso**                                                      **Output**
@@ -810,14 +814,14 @@ UiAnimator e ActivityInstrumentationTestCase2.
   \#2                                                Selezione tasto Start   Selezione tasto Stop             Attivo/Attivo     Visualizza i risultati                                                 Visualizza i risultati
   \#3                                                Selezione tasto Stop                                     Attivo/Attivo     "Devi premere Start prima di iniziare l'allenamento"                   "Devi premere Start prima di iniziare l'allenamento"
 
-  []{#_Toc498684080 .anchor}Lancio di una sfida                                                                                                 
+  []{#_Toc498697203 .anchor}Lancio di una sfida                                                                                                 
   ----------------------------------------------- ------------------------------------ --------------------------------- ---------------------- ----------------------
   **Choice**                                      **Categories**                       **Enviroments characteristics**                          
                                                   **Operazione \#1**                   **GPS/Network**                   **Valore atteso**      **Output**
   \#1                                             Selezione marker sfidante            Attivo/Attivo                     Visualizza "Sei qui"   Visualizza "Sei qui"
   \#2                                             Selezione marker possibile sfidato   Attivo/Attivo                     Visualizza "Sfidami"   Visualizza "Sfidami"
 
-  []{#_Toc498684081 .anchor}Challenge                                                                                      
+  []{#_Toc498697204 .anchor}Challenge                                                                                      
   ------------------------------------- -------------------------------- ------------------------------------------------- -------------------------------------------------
   **Choice**                            **Categories**                                                                     
                                         **Operazione \#1**               **Valore atteso**                                 **Output**
@@ -834,3 +838,18 @@ copertura dei test, è stato utilizzato il tool *Jacoco*. Esso ci ha
 fornito un report con i dettagli sulla percentuale delle righe di codice
 coperte dai test e, più precisamente, evidenzia in verde e in rosso
 rispettivamente le righe di codice coperte o meno.
+
+In figura 1 è mostrata la percentuale complessiva di codice coperto dai
+test relativa al package *sbk.unisannio.com.socialbikekeeper*. In figura
+2 tale percentuale viene mostrata in dettaglio per ognuna delle
+*Activity* implementate.
+
+![](media/image19.png){width="6.6930555555555555in"
+height="0.8924070428696413in"}
+
+Figura 1Coverage del package
+
+![](media/image20.jpg){width="6.6930555555555555in"
+height="2.6729166666666666in"}
+
+Figura 2Coverage delle activity
