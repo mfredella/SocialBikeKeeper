@@ -1,7 +1,6 @@
-<p align=center> 
-  
-  # SocialBikeKeeper
-</p>
+ 
+# SocialBikeKeeper
+
 <p align=center>
 <img src="https://github.com/mfredella/SocialBikeKeeper/blob/master/app/src/main/res/drawable/ic_launcher.png">
 </p>
