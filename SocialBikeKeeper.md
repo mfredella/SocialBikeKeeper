@@ -749,7 +749,7 @@ UiAnimator e ActivityInstrumentationTestCase2.
   \#1                                   Visualizza notifica              “Hai una nuova sfida di 60 minuti da:”
   \#2                                   Selezione notifica               “Accetti la Sfida?”
   \#3                                   Seleziona “NO” (Rifiuta sfida)   Visualizza schermata per sessione d’allenamento
-  \#4                                   Seleziona “SI” (Accetta sfida)   “Sfida accettata, activity da implementare”
+  \#4                                   Seleziona “SI” (Accetta sfida)   Visualizza schermata per la sfida
 
 6.2 Coverage test {#coverage-test .Marianna2}
 -----------------
