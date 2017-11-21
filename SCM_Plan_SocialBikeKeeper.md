@@ -1,6 +1,18 @@
+![](media/image1.png){width="2.749656605424322in"
+height="1.3956583552055992in"}
+
 **Software Conﬁguration Management Plan **
 
-**\
+![](media/image2.png){width="1.7291666666666667in"
+height="1.5194488188976378in"}
+
+**Social Bike Keeper**
+
+**Caruso Sara 399000113 Prof. M. Di Penta**
+
+**Fredella Michele 399000104**
+
+**Fucci Marianna 399000112\
 **
 
 1 Introduction to the plan {#introduction-to-the-plan .Titolo1Mod}
@@ -15,11 +27,11 @@ documento andrà a descrivere quello che sarà il processo del SCM, il
 quale nasce per tener traccia dei cambiamenti sui file, per sapere quali
 sono le ultime versioni funzionanti dei file stessi, e per avere la
 possibilità di ripristinare stati precedenti del sistema in caso di
-cambiamenti. L'altro aspetto importante, fornito dai tool utilizzati nel
+cambiamenti. L’altro aspetto importante, fornito dai tool utilizzati nel
 SCM, è la possibilità di lavorare in maniera cooperativa, in modo
 organizzato ed efficiente. Con questa organizzazione è possibile avere a
 disposizione sempre lo stato di avanzamento del progetto, dei vari
-artefatti, e del lavoro dei vari componenti. Le attività riportate in
+artefatti e del lavoro dei vari componenti. Le attività riportate in
 questo documento, riguardano in particolare:
 
 1.  Identificazione dei Configuration Item, ovvero degli artefatti da
@@ -28,15 +40,13 @@ questo documento, riguardano in particolare:
 configurazione, e per i quali gestire le revisioni, la storia, ecc.
 
 1.  Definizione di regole per il Promotion Management, quindi come viene
-    gestita l'attività di
+    gestita l’attività di pubblicazione di una parte del prodotto
+    software verso gli altri sviluppatori
 
-2.  Pubblicazione di una parte del prodotto software, verso gli altri
-    sviluppatori
+2.  Definizione di regole per il Release Management, quindi come viene
+    gestita l’attività di
 
-3.  Definizione di regole per il Release Management: quindi come viene
-    gestita l'attività di
-
-pubblicazione di una release del prodotto verso l'esterno (i clienti)
+pubblicazione di una release del prodotto verso l’esterno (i clienti)
 
 1.  Definizione di regole per il Change Management: regolamentazione
     della gestione di
@@ -47,7 +57,7 @@ funzionalità
 1.  Individuazione dei tool da utilizzare
 
 Il presente documento va anche ad identificare quelle che sono le
-responsabilità all'interno del progetto e in particolare identifica le
+responsabilità all’interno del progetto e, in particolare, identifica le
 seguenti figure:
 
 1.  Configuration Manager: decide quali sono i Configuration Item
@@ -71,10 +81,6 @@ Assunzioni:
 
 3)  Rispetto delle milestone fissate
 
-4)  Rispetto degli sprint fissati
-
-5)  Costanti scrum settimanali a sostegno dello sviluppo agile
-
 Limitazioni:
 
 1)  Differenti disponibilità temporali dei componenti del gruppo
@@ -82,7 +88,7 @@ Limitazioni:
 1.3 Key terms {#key-terms .Titolo2Mod}
 -------------
 
--   Ciclista: utente iscritto all'applicazione
+-   Ciclista: utente iscritto all’applicazione
 
 -   Sfida: competizione sportiva tra ciclisti
 
@@ -103,7 +109,7 @@ design uml e testing effettuati
 ---------------------------
 
 Il SCM team è costituito da tre sviluppatori, i quali coopereranno allo
-sviluppo applicativo dell'applicazione mobile. Inoltre, al fine di
+sviluppo applicativo dell’applicazione mobile. Inoltre, al fine di
 soddisfare i criteri di qualità del codice e del software i tre membri
 collaboreranno anche allo sviluppo e alle attività di gestione del
 sistema.
@@ -119,26 +125,25 @@ elementi da sottoporre a Configuration Management:
 
 1\) I file contenenti codice sorgente con estensione
 
-\- ".java", ".xml" (rappresentativi del sistema Android)
+- “.java”, “.xml” (rappresentativi del sistema Android)
 
-\- ".php" (lato server)
+- “.php” (lato server)
 
 2\) Le librerie con estensione
 
-\- ".jar"
+- “.jar”
 
 3\) I file di configurazione con estensione
 
-\- ". gradle" (file di build)
+- “. gradle” (file di build)
 
-\- ". properties", ".ec" (appartenenti al plugin *Jacoco*)
+- “. properties”, “.ec” (appartenenti al plugin *Jacoco*)
 
 4\) I file relativi alla documentazione, con estensione
 
-\- \".docx"
+- ".docx”
 
-\- ".md" (per tenere traccia dei cambiamenti all'interno di file
-*.docx*)
+- “.md” (per tenere traccia dei cambiamenti all’interno di file *.docx*)
 
 3.2 Configuration Control {#configuration-control .Titolo2Mod}
 -------------------------
@@ -155,7 +160,7 @@ seguenti informazioni da associare alla *issue*:
 
 -   Descrizione: contenente informazioni dettagliate della richiesta
 
--   Milestone: Oltre alla richiesta si specificherà l'obiettivo che si
+-   Milestone: Oltre alla richiesta si specificherà l’obiettivo che si
     vorrà raggiungere.
 
 -   Etichetta: un tag specifico che contraddistingue la natura della
@@ -166,10 +171,10 @@ richiesta:
 
 -   **BUG:** usata per segnalare la presenza di un bug
 
--   **FEATURE:** usata per la promozione e l\'introduzione di una nuova
+-   **FEATURE:** usata per la promozione e l'introduzione di una nuova
     funzionalità
 
--   **DOCUMENTATION:** impiegata per richiamare l\'attenzione su
+-   **DOCUMENTATION:** impiegata per richiamare l'attenzione su
     questioni riguardanti la documentazione.
 
 -   **ENHANCEMENT:** indica che la richiesta di cambiamento investe gli
@@ -180,24 +185,25 @@ richiesta:
     declinabili o attuabili.
 
 -   **INVALID:** tale etichetta è impiegata esclusivamente per indicare
-    failure presentatesi durante l\'attività di testing che causano il
-    crash del sistema o compromettono l\'adempimento delle funzionalità
+    failure presentatesi durante l'attività di testing che causano il
+    crash del sistema o compromettono l'adempimento delle funzionalità
     principali.
 
 Qualsiasi tipologia di richiesta di cambiamento dovrà essere sottomessa
-all\'*issue tracker*. La sottomissione di una richiesta di cambiamento
-verrà tracciata tramite un\'*issue tracking* offerto dal sistema Git. Il
+all'*issue tracker*. La sottomissione di una richiesta di cambiamento
+verrà tracciata tramite un'*issue tracking* offerto dal sistema Git. Il
 change control board member ha la possibilità di disapprovare la
 richiesta, a patto di motivare adeguatamente le motivazioni del rifiuto
-prima della chiusura. L\'approvazione di una richiesta richiederà
+prima della chiusura. L'approvazione di una richiesta richiederà
 riscontro positivo di tutti i membri.
 
 ### 3.2.1 Branch Management  {#branch-management .Titolo3Mod}
 
-L\'approvazione di una change request richiederà l\'aggiunta di una
-nuova funzionalità sperimentale o il miglioramento di una determinata
-componente ciò comporta l\'apertura di un nuovo branch di sviluppo,
-questo ci consentirà di preservare la stabilità del sistema.
+La creazione di un nuovo branch si è resa necessaria per consentire lo
+sviluppo parallelo di nuove funzionalità sperimentali o il miglioramento
+di una determinata componente; questo ci consentirà di preservare la
+stabilità del sistema e di ridurre i tempi di implementazione
+dell’applicazione.
 
 ### 3.2.2 Promotion Management  {#promotion-management .Titolo3Mod}
 
@@ -214,7 +220,7 @@ Ispezione della tracciabilità.
 Periodicamente, a valle della implementazione e realizzazione di
 determinate funzionalità associate agli use case, si verificherà:
 
--   L\'allineamento tra la documentazione e gli artefatti software del
+-   L'allineamento tra la documentazione e gli artefatti software del
     sistema;
 
 -   Il sussistere della tracciabilità tra i requisiti e gli artefatti di
@@ -224,15 +230,15 @@ determinate funzionalità associate agli use case, si verificherà:
 ----------------------------------------------------
 
 In seguito alla realizzazione di una determinata componente, sarà
-realizzata un'attività di test di unità minimale, al fine di convalidare
-un minimo livello di confidenza raggiunto con l\'artefatto da integrare
-all\'interno del sistema. Ogni riunione sarà rigorosamente concentrata
-in un quarto d\'ora, al fine di determinare velocemente il punto della
+realizzata un’attività di test di unità minimale, al fine di convalidare
+un minimo livello di confidenza raggiunto con l'artefatto da integrare
+all'interno del sistema. Ogni riunione sarà rigorosamente concentrata in
+un quarto d'ora, al fine di determinare velocemente il punto della
 situazione e prefiggere i nuovi obiettivi a breve termine da realizzare.
 Saranno indette riunioni straordinarie nel caso in cui sia necessaria la
 revisione di artefatti critici; Per ogni riunione straordinaria sarà
 riportata una descrizione degli interventi effettuati e delle decisioni
-intraprese, oltre alla loro catalogazione nell\'apposito issue tracker.
+intraprese, oltre alla loro catalogazione nell'apposito issue tracker.
 
 4. Planned activities, schedule and resources  {#planned-activities-schedule-and-resources .Titolo1Mod}
 ==============================================
@@ -245,24 +251,24 @@ prefissate:
 
 **Milestone 0.1** Implementazione degli *use case*:
 
-**Sprint 1:** Come sistema, si vuole realizzare un'applicazione che
-consenta di registrarsi, loggarsi e visualizzare la propria posizione
-sulla mappa. Tutto questo con l'ausilio di script in linguaggio PHP che
-permettono la creazione e successiva gestione del database, in cui si
-renderanno persistenti informazioni relative agli utenti.
+Come sistema, si vuole realizzare un’applicazione che consenta di
+registrarsi, loggarsi e visualizzare la propria posizione sulla mappa.
+Tutto questo con l’ausilio di script in linguaggio PHP che permettono la
+creazione e successiva gestione del database, in cui si renderanno
+persistenti informazioni relative agli utenti.
 
 Data di completamento: 03/11/2017
 
 (Tale fase sarà aggiornata man mano che si procede con
-l'implementazione).
+l’implementazione).
 
 **Milestone 0.2**
 
 Come sistema, si vuole introdurre una nuova funzionalità: iniziare una
-nuova sessione d'allenamento. Si implementeranno opportuni script PHP
+nuova sessione d’allenamento. Si implementeranno opportuni script PHP
 che consentiranno la gestione della persistenza delle posizioni sulla
-mappa degli utenti loggati. Inoltre, è prevista l'introduzione
-dell'opzione per visualizzare i risultati degli allenamenti portati a
+mappa degli utenti loggati. Inoltre, è prevista l’introduzione
+dell’opzione per visualizzare i risultati degli allenamenti portati a
 termine da un utente.
 
 Data di completamento: 07/11/2017
@@ -288,28 +294,26 @@ Data di completamento: 17/11/2017
 
 Personnel:
 
-\- Configuration Manager: Sara Caruso, Michele Fredella, Marianna Fucci
+- Configuration Manager: Sara Caruso, Michele Fredella, Marianna Fucci
 
-\- Change Control Board Member: Sara Caruso, Michele Fredella, Marianna
+- Change Control Board Member: Sara Caruso, Michele Fredella, Marianna
 Fucci
 
-\- Developers: Sara Caruso, Michele Fredella, Marianna Fucci
+- Developers: Sara Caruso, Michele Fredella, Marianna Fucci
 
 Software:
 
 -   **Git:** tool di versioning distribuito, in cui ciascuno
-    sviluppatore ha un proprio repository
-
--   locale, in cui effettua il cloning del repository centrale.
-    Possibilità di gestire brach, issue, change management e statistiche
-    di utilizzo
+    sviluppatore ha un proprio repository locale, in cui effettua il
+    cloning del repository centrale. Possibilità di gestire brach,
+    issue, change management e statistiche di utilizzo
 
 -   **Android Studio:** ambiente di sviluppo integrato (IDE) per la
     piattaforma Android, basato
 
 sul software della JetBrains IntelliJ IDEA.
 
--   **JUnit:** framework per l'organizzazione e l'esecuzione dei casi di
+-   **JUnit:** framework per l’organizzazione e l’esecuzione dei casi di
     test di unità, e rappresenta
 
 una istanza della famiglia XUnit, che racchiude una serie di tool in
