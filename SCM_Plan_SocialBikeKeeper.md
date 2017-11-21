@@ -258,32 +258,28 @@ l'implementazione).
 
 **Milestone 0.2**
 
-**Sprint 2.** Come sistema, si vuole introdurre una nuova funzionalità:
-iniziare una nuova sessione d'allenamento. Si implementeranno opportuni
-script PHP che consentiranno la gestione della persistenza delle
-posizioni sulla mappa degli utenti loggati.
-
-Data di completamento: 06/11/2017
-
-**Sprint 3.** Introduzione dell'opzione per visualizzare i risultati
-degli allenamenti portati a termine da un utente.
+Come sistema, si vuole introdurre una nuova funzionalità: iniziare una
+nuova sessione d'allenamento. Si implementeranno opportuni script PHP
+che consentiranno la gestione della persistenza delle posizioni sulla
+mappa degli utenti loggati. Inoltre, è prevista l'introduzione
+dell'opzione per visualizzare i risultati degli allenamenti portati a
+termine da un utente.
 
 Data di completamento: 07/11/2017
 
 **Milestone 0.3**
 
-**Sprint 4.** Come sistema, si vuole introdurre una nuova funzionalità:
-il ciclista può lanciare una sfida, di durata limitata a 60 o 90 minuti,
-ad un altro ciclista loggato; il ciclista sfidato può accettare o meno
-la sfida.
+Come sistema, si vuole introdurre una nuova funzionalità: il ciclista
+può lanciare una sfida, di durata limitata a 60 o 90 minuti, ad un altro
+ciclista loggato; il ciclista sfidato può accettare o meno la sfida.
 
 Data di completamento: 14/11/2017
 
 **Milestone 0.4**
 
-**Sprint 5.** Come sistema, si vuole introdurre una nuova funzionalità:
-il ciclista può portare a termine una sfida e riceverne il risultato.
-Inoltre si vogliono apportare migliorie grafiche.
+Come sistema, si vuole introdurre una nuova funzionalità: il ciclista
+può portare a termine una sfida e riceverne il risultato. Inoltre, si
+vogliono apportare migliorie grafiche.
 
 Data di completamento: 17/11/2017
 
