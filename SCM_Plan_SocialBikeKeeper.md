@@ -330,8 +330,10 @@ seguire una attività di testing guidata dal codice.
 -   **UIAnimator:** testing framework utilizzato per realizzare test per
     la UI di applicazioni Android
 
--   **Altervista**: servizio di hosting gratuito utilizzato per creare
-    un database MySQL, gestito tramite script PHP
+-   **Altervista**: servizio di hosting gratuito
+
+    -   **phpMyAdmin:** applicazione web che consente la gestione di un
+        database MySQL
 
 -   **Travis CI:** servizio di continuous integration utilizzato per
     effettuare build e testing del progetto Android ospitato in GitHub.
