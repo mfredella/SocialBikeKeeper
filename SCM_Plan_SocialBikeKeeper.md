@@ -333,5 +333,5 @@ seguire una attività di testing guidata dal codice.
 -   **Altervista**: servizio di hosting gratuito utilizzato per creare
     un database MySQL, gestito tramite script PHP
 
--   **Trabis CI:** servizio di continuous integration utilizzato per
+-   **Travis CI:** servizio di continuous integration utilizzato per
     effettuare build e testing del progetto Android ospitato in GitHub.
