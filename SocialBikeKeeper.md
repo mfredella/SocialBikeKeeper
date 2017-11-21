@@ -563,7 +563,7 @@ Social Bike Keeper si interfaccia con:
 | **POSTCONDIZIONI**                | -   Il ciclista che lancia la     |
 |                                   |     sfida diventa *sfidante*      |
 |                                   |                                   |
-|                                   | -   Il ciclista che lancia la     |
+|                                   | -   Il ciclista che accetta la    |
 |                                   |     sfida diventa *sfidato*       |
 |                                   |                                   |
 |                                   | -   Memorizzazione della sfida    |
