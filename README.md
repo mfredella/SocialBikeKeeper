@@ -1,7 +1,7 @@
  
 # SocialBikeKeeper
 
-# Applicazione sviluppata in Android mirata al supporto sportivo in particolar modo ai ciclisti amatoriali.
+# Applicazione Android mirata al supporto sportivo, in particolar modo ai ciclisti amatoriali.
 <p align=center>
 <img src="https://github.com/mfredella/SocialBikeKeeper/blob/master/app/src/main/res/drawable/ic_launcher.png">
 
