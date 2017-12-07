@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: "jacoco"
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
 
 android {
     compileSdkVersion 26
@@ -22,7 +25,87 @@ android {
         }
     }
 }
+checkstyle {
+    toolVersion = "7.7"
+}
 
+task checkstyleMain(type: Checkstyle) {
+    ignoreFailures = true
+    showViolations = true
+    source 'src/main', 'src/release', '../backend/src/main/java'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        xml.destination "$project.buildDir/reports/checkstyle/main.xml"
+    }
+    classpath = files()
+    configFile = file("${projectDir}/config/checkstyle/checkstyle.xml")
+}
+
+
+task checkstyleReport << {
+    checkType = project.ext.get("checkType")
+    if (file("$buildDir/reports/checkstyle/${checkType}.xml").exists()) {
+        ant.xslt(in: "$project.buildDir/reports/checkstyle/${checkType}.xml",
+                style: "${projectDir}/config/checkstyle/checkstyle-noframes-sorted.xsl",
+                out: "$project.buildDir/reports/checkstyle/checkstyle_${checkType}.html"
+        )
+    }
+}
+
+task checkstyle(dependsOn: ['checkstyleMain', 'checkstyleTest']) {
+    description 'Runs Checkstyle inspection against Android sourcesets.'
+    group = 'Code Quality'
+}
+task findbugs(type: FindBugs) {
+    ignoreFailures = false
+    effort = "min"
+    reportLevel = "high"
+    classes = files("${project.rootDir}/app/build/intermediates/classes")
+    source = fileTree('src/main/java/')
+    classpath = files()
+    excludeFilter = file("${projectDir}/config/findbugs/excludeFilter.xml")
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        xml {
+            destination "$project.buildDir/reports/findbugs/findbugs-output.xml"
+        }
+        html {
+            destination "$project.buildDir/reports/findbugs/findbugs-output.html"
+        }
+    }
+    group = 'Code quality'
+}
+pmd {
+    toolVersion = '5.5.1'
+}
+
+task pmd(type: Pmd) {
+    ruleSetFiles = files("${projectDir}/config/pmd/pmd-ruleset.xml")
+    ignoreFailures = true
+    ruleSets = []
+
+
+    source 'src', '../backend/src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        xml {
+            destination "$project.buildDir/reports/pmd/pmd.xml"
+        }
+        html {
+            destination "$project.buildDir/reports/pmd/pmd.html"
+        }
+    }
+
+    group = 'Code Quality'
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.+'
@@ -30,6 +113,7 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.google.android.gms:play-services-maps:11.0.4'
     compile 'com.google.android.gms:play-services-location:11.0.4'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2',
             'com.android.support.test.espresso:espresso-intents:2.2.2',
